@@ -1,8 +1,28 @@
-import NavBar from "../../components/navBar/NavBar.js";
+import adminNavBar from "./adminNavBar.js";
+import systemAdminNavBar from "./systemAdminNavBar.js";
+import userNavBar from "./userNavBar.js";
 
+export default function fillNavBar(user){
+    let navBarHtml;
 
+    switch (user.role) {
+        case "ROLE_SYSTEM_ADMIN":
+            navBarHtml = systemAdminNavBar();
+            break;
 
-export default function fillNavBar(){
-    return NavBar()
+        case "ROLE_ADMIN":
+            navBarHtml = adminNavBar();
+            break;
+
+        case "ROLE_USER":
+            navBarHtml = userNavBar();
+            break;
+
+        default:
+            navBarHtml = userNavBar();
+            break;
+
+    }
+    return navBarHtml;
 }
 

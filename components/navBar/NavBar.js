@@ -1,5 +1,6 @@
 
-export default function NavBarHTML() {
+
+export default function NavBar(additionalLiElements = []) {
     return `
         <div id="wrapper" class="toggled">
             <!-- Sidebar -->
@@ -8,20 +9,9 @@ export default function NavBarHTML() {
                     <li class="sidebar-brand">
                         <a href="#" class="text-light">Device Manager</a>
                     </li>
-                    <li>
-                        <a href="#" class="text-light">Create User</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-light">Login</a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-light">Dashboard</a>
-                    </li>
-                    <!-- Add more items as needed -->
+                    ${additionalLiElements.join('')}
                 </ul>
             </div>
-            
-           
         </div>
     `;
 }
