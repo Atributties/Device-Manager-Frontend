@@ -6,7 +6,7 @@ export default function systemAdminNavBar(routes) {
 
     const additionalLiElements = [
         `<li class="sidebar-brand">
-            <a href="#" class="text-light" >Create User</a>
+            <a href="#" class="text-light" id="create-user-link" >Create User</a>
         </li>`,
     ];
     return NavBar(additionalLiElements);
