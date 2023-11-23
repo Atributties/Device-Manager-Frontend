@@ -1,9 +1,10 @@
 
-// jwtUtils.js
 function storeToken(token) {
-    // ... (store the token securely)
+    localStorage.setItem('jwtToken', token);
 }
 
 function getToken() {
-    // ... (retrieve the token)
+    return localStorage.getItem('jwtToken');
 }
+
+export { storeToken, getToken };

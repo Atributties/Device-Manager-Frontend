@@ -7,27 +7,23 @@ export default function fillNavBar(user){
     let navBarHtml;
 
     switch (user.role) {
-        case "ROLE_SYSTEM_ADMIN":
+        case "SYSTEM_ADMIN":
             navBarHtml = systemAdminNavBar();
             break;
 
-        case "ROLE_ADMIN":
+        case "DEVICE_ADMIN":
             navBarHtml = adminNavBar();
             break;
 
-        case "ROLE_USER":
+        case "USER":
             navBarHtml = userNavBar();
-            break;
-
-        case "ROLE_ANONYMOUS":
-            navBarHtml = defaultNavBar();
             break;
 
         default:
             navBarHtml = defaultNavBar();
             break;
-
     }
+
     return navBarHtml;
 }
 
