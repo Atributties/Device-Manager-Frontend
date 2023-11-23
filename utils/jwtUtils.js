@@ -1,10 +1,9 @@
 
-function storeToken(token) {
+export default function storeToken(token) {
     localStorage.setItem('jwtToken', token);
 }
 
-function getToken() {
+export function getToken() {
     return localStorage.getItem('jwtToken');
 }
 
-export { storeToken, getToken };

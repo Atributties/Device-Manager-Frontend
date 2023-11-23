@@ -1,29 +1,29 @@
 import adminNavBar from "./adminNavBar.js";
 import systemAdminNavBar from "./systemAdminNavBar.js";
 import userNavBar from "./userNavBar.js";
-import defaultNavBar from "./defaultNavBar.js";
 
-export default function fillNavBar(user){
-    let navBarHtml;
+// Function to update the navbar based on the role
+export default async function updateNavbarForRole(role) {
+    let navbarContainer = document.getElementById("navbar-container");
+    if (navbarContainer) {
+        switch (role) {
+            case "SYSTEM_ADMIN":
+                navbarContainer.innerHTML = systemAdminNavBar();
+                break;
 
-    switch (user.role) {
-        case "SYSTEM_ADMIN":
-            navBarHtml = systemAdminNavBar();
-            break;
+            case "DEVICE_ADMIN":
+                navbarContainer.innerHTML = adminNavBar();
+                break;
 
-        case "DEVICE_ADMIN":
-            navBarHtml = adminNavBar();
-            break;
+            case "USER":
+                navbarContainer.innerHTML = userNavBar();
+                break;
 
-        case "USER":
-            navBarHtml = userNavBar();
-            break;
-
-        default:
-            navBarHtml = defaultNavBar();
-            break;
+            default:
+                // If the role is not recognized, redirect to login
+                window.location.href = "path/to/login/page"; // Update this with the actual path
+                break;
+        }
     }
-
-    return navBarHtml;
 }
 
