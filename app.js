@@ -4,6 +4,7 @@ import loadLogin from "./utils/login.js";
 import updateNavbarForRole from "./js/navBar/fillNavBar.js";
 import getUserTable from "./js/main/user/getUserTable.js";
 import createUserPage from "./js/main/user/createUser.js";
+import getDeviceTable from "./js/main/device/getDeviceTable.js";
 
 
 async function initializeApp() {
@@ -24,7 +25,7 @@ async function initializeApp() {
 //Test for show table
 
 //const testButton = document.getElementById("test-button")
-//testButton.addEventListener('click', getUserTable)
+//testButton.addEventListener('click', getDeviceTable)
 
 //Test for show create userform
 //const createUser = document.getElementById("createUserBTN")
