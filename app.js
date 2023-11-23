@@ -2,8 +2,7 @@
 
 import loadLogin from "./utils/login.js";
 import updateNavbarForRole from "./js/navBar/fillNavBar.js";
-
-
+import getUserTable from "./js/main/user/getUserTable.js";
 
 
 async function initializeApp() {
@@ -12,14 +11,17 @@ async function initializeApp() {
 
     if (storedRole) {
         // If the role is stored, the user is already logged in
-        updateNavbarForRole(storedRole);
+        await updateNavbarForRole(storedRole);
     } else {
         // If the role is not stored, the user needs to log in
         await loadLogin();
         const newRole = localStorage.getItem('userRole');
-        updateNavbarForRole(newRole);
+        await updateNavbarForRole(newRole);
     }
 }
+
+//const testButton = document.getElementById("test-button")
+//testButton.addEventListener('click', getUserTable)
 
 
 initializeApp();
