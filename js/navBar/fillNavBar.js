@@ -1,6 +1,7 @@
 import adminNavBar from "./adminNavBar.js";
 import systemAdminNavBar from "./systemAdminNavBar.js";
 import userNavBar from "./userNavBar.js";
+import defaultNavBar from "./defaultNavBar.js";
 
 export default function fillNavBar(user){
     let navBarHtml;
@@ -18,8 +19,12 @@ export default function fillNavBar(user){
             navBarHtml = userNavBar();
             break;
 
+        case "ROLE_ANONYMOUS":
+            navBarHtml = defaultNavBar();
+            break;
+
         default:
-            navBarHtml = userNavBar();
+            navBarHtml = defaultNavBar();
             break;
 
     }
