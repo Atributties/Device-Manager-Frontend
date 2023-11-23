@@ -1,3 +1,5 @@
+
+
 export default function fetchAnyUrl(url, options = {}, token) {
     // Standardindstillinger for fetch-anmodningen
     const defaultOptions = {
@@ -25,3 +27,5 @@ export default function fetchAnyUrl(url, options = {}, token) {
             throw error; // Kast fejlen videre, så det kan håndteres af kaldende kode
         });
 }
+
+
