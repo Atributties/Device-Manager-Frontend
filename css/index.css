@@ -150,3 +150,65 @@
 .custom-table tbody tr:hover {
     background-color: #e0e0e0; /* Lighter gray on hover */
 }
+
+
+
+
+/* styles.css */
+
+/* Add any custom styles here */
+/* You can customize the styles based on your design preferences */
+
+/* Optional: Adjust body margin and padding */
+/* styles.css */
+/* styles.css */
+
+/* Add Bootstrap link if not already included in your project */
+
+/* Add your custom styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createUserHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createUserForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#createUserButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createUserButton:hover {
+    background-color: #444242FF; /* Darker shade of Bootstrap primary color */
+}
+
