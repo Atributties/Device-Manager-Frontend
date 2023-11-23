@@ -5,6 +5,7 @@ import updateNavbarForRole from "./js/navBar/fillNavBar.js";
 import getUserTable from "./js/main/user/getUserTable.js";
 import createUserPage from "./js/main/user/createUser.js";
 import getDeviceTable from "./js/main/device/getDeviceTable.js";
+import createDevicePage from "./js/main/device/createDevice.js";
 
 
 async function initializeApp() {
@@ -29,7 +30,7 @@ async function initializeApp() {
 
 //Test for show create userform
 //const createUser = document.getElementById("createUserBTN")
-//createUser.addEventListener('click', createUserPage)
+//createUser.addEventListener('click', createDevicePage)
 
 initializeApp();
 
