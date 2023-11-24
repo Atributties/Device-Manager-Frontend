@@ -1,5 +1,3 @@
-
-
 export default function fetchAnyUrl(url, options = {}, token) {
     // Standardindstillinger for fetch-anmodningen
     const defaultOptions = {

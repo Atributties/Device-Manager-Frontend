@@ -39,6 +39,7 @@ export default async function loadLogin() {
                     console.log(localStorage.getItem('userRole'))
                     console.log("Login successful:", data);
                     console.log("jwt token:", data.jwt);
+                    window.location.reload();
                 } else {
                     console.error("Login failed:", response.status);
                     // Handle login failure if needed

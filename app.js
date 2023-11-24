@@ -2,6 +2,7 @@
 
 import loadLogin from "./utils/login.js";
 import updateNavbarForRole from "./js/navBar/fillNavBar.js";
+import logout from './utils/logout.js';
 import getUserTable from "./js/main/user/getUserTable.js";
 import createUserPage from "./js/main/user/createUser.js";
 import getDeviceTable from "./js/main/device/getDeviceTable.js";
@@ -21,6 +22,7 @@ async function initializeApp() {
         const newRole = localStorage.getItem('userRole');
         await updateNavbarForRole(newRole);
     }
+    window.logout = logout;
 }
 
 //Test for show table
