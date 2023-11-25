@@ -29,7 +29,7 @@ export default async function loadLogin() {
 
                 if (response.ok) {
                     const data = await response.json();
-                    storeToken(data.jwt); // Store the JWT token
+                    storeToken(data.jwt);
                     console.log("JWT Token:", data.jwt);
 
                     // Decode the JWT
@@ -42,15 +42,11 @@ export default async function loadLogin() {
                     console.log("Decoded Payload:", payload);
                     const decodedToken = JSON.parse(payload);
 
-                    // Extract role from the decoded token
-                    const userRole = decodedToken.roles; // Assuming 'roles' is the key for role in your token's payload
+                    const userRole = decodedToken.roles;
 
                     console.log("User role:", userRole);
 
-                    // Store role in localStorage
                     localStorage.setItem('userRole', userRole);
-
-                    // Update the navbar and other parts of your application
                     updateNavbarForRole(userRole);
 
                     console.log("Login successful:", data);
@@ -58,7 +54,6 @@ export default async function loadLogin() {
                     window.location.reload();
                 } else {
                     console.error("Login failed:", response.status);
-                    // Handle login failure if needed
                 }
             } catch (decodeError) {
                 console.error("Error decoding JWT:", decodeError);
@@ -66,6 +61,5 @@ export default async function loadLogin() {
         });
     } else {
         console.log("Required elements (submit button, email input, or password input) not found");
-        // Handle missing elements if needed
     }
 }
