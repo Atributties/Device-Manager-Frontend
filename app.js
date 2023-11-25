@@ -25,6 +25,7 @@ async function initializeApp() {
         await updateNavbarForRole(newRole);
     }
     setupNavbarListeners();
+    await getUserTable();
     window.logout = logout;
 
     document.getElementById('main-container').innerHTML = Main();

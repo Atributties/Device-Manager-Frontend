@@ -11,8 +11,14 @@ export default function setupNavbarListeners() {
     // Listener for "User Table" link
     document.getElementById('user-table')?.addEventListener('click', (event) => {
         event.preventDefault();
+        clearMainContainer();
         getUserTable();
     });
+
+    function clearMainContainer() {
+        const mainContainer = document.getElementById('main-container');
+        mainContainer.innerHTML = ''; // Clear the content
+    }
 
     // Add more listeners as needed for other navbar links
 }
