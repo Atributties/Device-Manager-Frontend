@@ -26,9 +26,9 @@ async function initializeApp() {
     }
     setupNavbarListeners();
     await getUserTable();
+    document.getElementById('main-container').innerHTML = Main();
     window.logout = logout;
 
-    document.getElementById('main-container').innerHTML = Main();
 }
 
 //Test for show table

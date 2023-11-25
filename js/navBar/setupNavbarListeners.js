@@ -1,5 +1,6 @@
 import createUserPage from "../main/user/createUser.js";
 import getUserTable from "../main/user/getUserTable.js";
+import Main from "../../components/main/Main.js";
 
 export default function setupNavbarListeners() {
     // Listener for "Create User" link
@@ -13,6 +14,12 @@ export default function setupNavbarListeners() {
         event.preventDefault();
         clearMainContainer();
         getUserTable();
+    });
+
+    document.getElementById('device-manager-link')?.addEventListener('click', (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        document.getElementById('main-container').innerHTML = Main();
     });
 
     function clearMainContainer() {

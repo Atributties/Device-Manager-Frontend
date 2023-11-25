@@ -4,7 +4,7 @@ export default function NavBar(additionalLiElements = []) {
             <div id="sidebar-wrapper" class="bg-dark">
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
-                        <a href="#" class="text-light">Device Manager</a>
+                        <a href="#" id="device-manager-link" class="text-light">Device Manager</a>
                     </li>
                     ${additionalLiElements.join('')}
                     <li class="sidebar-brand">
