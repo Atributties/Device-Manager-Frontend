@@ -30,13 +30,29 @@ export default async function loadLogin() {
                 if (response.ok) {
                     const data = await response.json();
                     storeToken(data.jwt); // Store the JWT token
-                    localStorage.setItem('userRole', data.user.userType);
-                    const userRole = localStorage.getItem('userRole');
+                    console.log("JWT Token:", data.jwt);
 
-                    // Update the navbar immediately after successful login
+                    // Decode the JWT
+                    const base64Url = data.jwt.split('.')[1];
+                    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    const payload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                    }).join(''));
+
+                    console.log("Decoded Payload:", payload);
+                    const decodedToken = JSON.parse(payload);
+
+                    // Extract role from the decoded token
+                    const userRole = decodedToken.roles; // Assuming 'roles' is the key for role in your token's payload
+
+                    console.log("User role:", userRole);
+
+                    // Store role in localStorage
+                    localStorage.setItem('userRole', userRole);
+
+                    // Update the navbar and other parts of your application
                     updateNavbarForRole(userRole);
 
-                    console.log(localStorage.getItem('userRole'))
                     console.log("Login successful:", data);
                     console.log("jwt token:", data.jwt);
                     window.location.reload();
@@ -44,9 +60,8 @@ export default async function loadLogin() {
                     console.error("Login failed:", response.status);
                     // Handle login failure if needed
                 }
-            } catch (error) {
-                console.error("Error during login:", error);
-                // Handle error during login if needed
+            } catch (decodeError) {
+                console.error("Error decoding JWT:", decodeError);
             }
         });
     } else {
