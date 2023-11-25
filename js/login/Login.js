@@ -1,10 +1,9 @@
-export default function Login() {
-    const style = 'style="color: black; margin-left: 220px;"'; // If you have more styles, you can add them here or use a CSS file
+export default function Login() {// If you have more styles, you can add them here or use a CSS file
     return `
-        <div class="container" ${style}>
+        <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1 class="text-center">Login</h1>
+                    <h1 id="bigLogin" class="text-center">Login</h1>
                     <p class="text-center">Please enter your credentials to login</p>
                     <form id="loginForm">
                         <div class="form-group">

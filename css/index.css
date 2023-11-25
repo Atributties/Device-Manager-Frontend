@@ -212,3 +212,12 @@ select {
     background-color: #444242FF; /* Darker shade of Bootstrap primary color */
 }
 
+#createUserHeading {
+    text-align: center;
+    color: #444242; /* Bootstrap primary color */
+}
+
+#bigLogin {
+    margin-top: 20px;
+}
+

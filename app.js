@@ -7,6 +7,7 @@ import getUserTable from "./js/main/user/getUserTable.js";
 import createUserPage from "./js/main/user/createUser.js";
 import getDeviceTable from "./js/main/device/getDeviceTable.js";
 import createDevicePage from "./js/main/device/createDevice.js";
+import setupNavbarListeners from "./js/navBar/setupNavbarListeners.js";
 
 
 async function initializeApp() {
@@ -22,6 +23,7 @@ async function initializeApp() {
         const newRole = localStorage.getItem('userRole');
         await updateNavbarForRole(newRole);
     }
+    setupNavbarListeners();
     window.logout = logout;
 }
 

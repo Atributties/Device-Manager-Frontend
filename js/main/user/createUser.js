@@ -6,6 +6,7 @@ const url = 'http://localhost:8080/user';
 const token = getToken()
 
 export default function createUserPage() {
+    console.log("createUserPage function called");
     // Define the user creation HTML template
     const userCreationTemplate = `
         <h2 id="createUserHeading">Create User</h2>
@@ -36,8 +37,8 @@ export default function createUserPage() {
     `;
 
     // Get the container element
-    const container = document.getElementById('create-user');
-
+    const container = document.getElementById('main-container');
+    container.innerHTML = userCreationTemplate;
     // Insert the generated HTML into the container
     container.innerHTML = userCreationTemplate;
 }
