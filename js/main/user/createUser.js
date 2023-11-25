@@ -58,5 +58,6 @@ export default function createUserPage() {
     console.log(formData);
     postObjectAsJson(url, formData, "POST", token)
      window.location.reload();
+    alert("User created successfully")
 }
 
