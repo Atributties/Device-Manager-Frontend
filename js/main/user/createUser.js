@@ -2,7 +2,7 @@
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import {getToken} from "../../../utils/jwtUtils.js";
 
-const url = 'http://localhost:8080/user';
+const url = 'http://localhost:8080/user/register';
 const token = getToken()
 
 export default function createUserPage() {
@@ -28,7 +28,7 @@ export default function createUserPage() {
 
             <label for="userType">User Type:</label>
             <select id="userType" name="userType" required>
-                <option value="ADMIN">Admin</option>
+                <option value="DEVICE_ADMIN">Device Admin</option>
                 <option value="USER">User</option>
             </select>
 
@@ -44,7 +44,7 @@ export default function createUserPage() {
 }
 
 // Example function for submitting user data (you can replace this with your actual logic)
-function submitUser() {
+ window.submitUser = function () {
     const formData = {
         firstname: document.getElementById('firstname').value,
         middlename: document.getElementById('middlename').value,
@@ -57,5 +57,6 @@ function submitUser() {
     // Perform any further processing or send the data to your backend
     console.log(formData);
     postObjectAsJson(url, formData, "POST", token)
+     window.location.reload();
 }
 
