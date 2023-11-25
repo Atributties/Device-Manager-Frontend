@@ -8,6 +8,7 @@ import createUserPage from "./js/main/user/createUser.js";
 import getDeviceTable from "./js/main/device/getDeviceTable.js";
 import createDevicePage from "./js/main/device/createDevice.js";
 import setupNavbarListeners from "./js/navBar/setupNavbarListeners.js";
+import Main from "./components/main/Main.js";
 
 
 async function initializeApp() {
@@ -25,6 +26,8 @@ async function initializeApp() {
     }
     setupNavbarListeners();
     window.logout = logout;
+
+    document.getElementById('main-container').innerHTML = Main();
 }
 
 //Test for show table
