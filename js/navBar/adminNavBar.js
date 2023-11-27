@@ -11,9 +11,6 @@ export default function adminNavBar() {
         `<li class="sidebar-brand">
             <a href="#" id="create-device" class="text-light">Create Device</a>
         </li>`,
-        `<li class="sidebar-brand">
-            <a href="#" id="update-device" class="text-light">Update Device</a>
-        </li>`,
     ];
 
     return NavBar(additionalLiElements);
