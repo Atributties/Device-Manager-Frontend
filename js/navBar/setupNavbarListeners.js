@@ -36,6 +36,11 @@ export default function setupNavbarListeners() {
         createDevicePage();
     });
 
+    document.getElementById('update-device')?.addEventListener('click', (event) => {
+        event.preventDefault();
+        clearMainContainer();
+    });
+
     function clearMainContainer() {
         const mainContainer = document.getElementById('main-container');
         mainContainer.innerHTML = ''; // Clear the content

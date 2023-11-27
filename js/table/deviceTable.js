@@ -1,4 +1,5 @@
 import deleteDevice from "../main/device/deleteDevice.js";
+import fetchDeviceById from "../main/device/updateDevice.js";
 
 export default function createDeviceTable(data) {
     if (!data || data.length === 0) {
@@ -40,6 +41,7 @@ export default function createDeviceTable(data) {
     const tbody = document.createElement("tbody");
 
     data.forEach(rowData => {
+        console.log("Row data:", rowData);
         const row = tbody.insertRow();
         row.id = 'row-' + rowData.imeiNumber;
         desiredFields.forEach(field => {
@@ -53,14 +55,12 @@ export default function createDeviceTable(data) {
 
             cell.innerHTML = cellValue || ''; // Handle undefined or missing values
         });
-
-        // Create Update button
         const updateCell = row.insertCell();
         const updateButton = document.createElement("button");
         updateButton.innerHTML = "Update";
         updateButton.onclick = function() {
-            // Logic to navigate to the update page
-            // Example: window.location.href = '/update-device.html?imeiNumber=' + rowData.imeiNumber;
+            console.log("Button clicked for device:", rowData);
+            fetchDeviceById(rowData.imeiNumber);
         };
         updateCell.appendChild(updateButton);
 
