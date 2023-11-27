@@ -9,7 +9,7 @@ export default function adminNavBar() {
             <a href="#" class="text-light">Devices</a>
         </li>`,
         `<li class="sidebar-brand">
-            <a href="#" class="text-light">Create Device</a>
+            <a href="#" id="create-device" class="text-light">Create Device</a>
         </li>`,
         `<li class="sidebar-brand">
             <a href="#" class="text-light">Update Device</a>
