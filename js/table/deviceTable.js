@@ -1,3 +1,5 @@
+import deleteDevice from "../main/device/deleteDevice.js";
+
 export default function createDeviceTable(data) {
     if (!data || data.length === 0) {
         console.error("No device data provided to create table");
@@ -26,10 +28,20 @@ export default function createDeviceTable(data) {
         headerRow.appendChild(th);
     });
 
+    // Add headers for the action buttons
+    const updateTh = document.createElement("th");
+    updateTh.innerHTML = "Update";
+    headerRow.appendChild(updateTh);
+
+    const deleteTh = document.createElement("th");
+    deleteTh.innerHTML = "Delete";
+    headerRow.appendChild(deleteTh);
+
     const tbody = document.createElement("tbody");
 
     data.forEach(rowData => {
         const row = tbody.insertRow();
+        row.id = 'row-' + rowData.imeiNumber;
         desiredFields.forEach(field => {
             const cell = row.insertCell();
             let cellValue = rowData[field];
@@ -41,8 +53,28 @@ export default function createDeviceTable(data) {
 
             cell.innerHTML = cellValue || ''; // Handle undefined or missing values
         });
+
+        // Create Update button
+        const updateCell = row.insertCell();
+        const updateButton = document.createElement("button");
+        updateButton.innerHTML = "Update";
+        updateButton.onclick = function() {
+            // Logic to navigate to the update page
+            // Example: window.location.href = '/update-device.html?imeiNumber=' + rowData.imeiNumber;
+        };
+        updateCell.appendChild(updateButton);
+
+        // Create Delete button
+        const deleteCell = row.insertCell();
+        const deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Delete";
+        deleteButton.onclick = function() {
+            deleteDevice(rowData.imeiNumber);
+        };
+        deleteCell.appendChild(deleteButton);
     });
 
     table.appendChild(tbody);
     mainContainer.appendChild(table);
 }
+
