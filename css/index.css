@@ -5,15 +5,16 @@
  */
 
 #main-container {
-    margin-left: 20%; /* Adjust this value based on the width of your navbar */
-    /* Other styles */
+    margin-left: 20%;
 }
 
 .custom-table {
-    width: 80%; /* Adjust 250px to the width of your navbar */
-    /* Other styles */
+    width: 80%;
 }
 
+#createDeviceForm {
+    width: 80%;
+}
 
 #wrapper {
     padding-left: 250px;

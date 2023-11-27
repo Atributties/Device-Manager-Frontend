@@ -10,7 +10,7 @@ export default function createDevicePage() {
     const deviceCreationTemplate = `
         <h2 id="createDeviceHeading">Create Device</h2>
         <form id="createDeviceForm">
-            <label for="IMEINumber">IMEI Number:</label>
+            <label for="IMEINumber">IMEI Number(15 char):</label>
             <input type="number" id="IMEINumber" name="IMEINumber" required>
 
             <label for="SerialNumber">Serial Number:</label>
@@ -85,6 +85,6 @@ window.submitDevice = function () {
     // Perform any further processing or send the data to your backend
     console.log(formData);
     postObjectAsJson(url, formData, "POST", token);
-   //window.location.reload();
+   window.location.reload();
     alert("Device created successfully")
 }
