@@ -18,6 +18,12 @@ export default function setupNavbarListeners() {
         getUserTable();
     });
 
+    document.getElementById('employees')?.addEventListener('click', (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        getUserTable();
+    });
+
     document.getElementById('device-manager-link')?.addEventListener('click', (event) => {
         event.preventDefault();
         clearMainContainer();
