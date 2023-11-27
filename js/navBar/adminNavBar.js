@@ -6,7 +6,7 @@ export default function adminNavBar() {
             <a href="#" class="text-light">Employees</a>
         </li>`,
         `<li class="sidebar-brand">
-            <a href="#" class="text-light">Devices</a>
+            <a href="#" id="devices" class="text-light">Devices</a>
         </li>`,
         `<li class="sidebar-brand">
             <a href="#" id="create-device" class="text-light">Create Device</a>

@@ -1,6 +1,6 @@
 
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
-import createTable from "../../table/table.js";
+import createTable from "../../table/deviceTable.js";
 import {getToken} from "../../../utils/jwtUtils.js";
 
 
@@ -9,7 +9,7 @@ const accessToken = getToken()
 
 export default async function getDeviceTable() {
     try {
-        const deviceList = await fetchAnyUrl(url);
+        const deviceList = await fetchAnyUrl(url, {}, accessToken);
         createTable(deviceList);
         console.log(deviceList)
     } catch (error) {
