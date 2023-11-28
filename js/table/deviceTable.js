@@ -43,7 +43,7 @@ export default function createDeviceTable(data) {
     data.forEach(rowData => {
         console.log("Row data:", rowData);
         const row = tbody.insertRow();
-        row.id = 'row-' + rowData.imeiNumber;
+        row.id = 'row-' + rowData.id;
         desiredFields.forEach(field => {
             const cell = row.insertCell();
             let cellValue = rowData[field];
@@ -60,7 +60,7 @@ export default function createDeviceTable(data) {
         updateButton.innerHTML = "Update";
         updateButton.onclick = function() {
             console.log("Button clicked for device:", rowData);
-            fetchDeviceById(rowData.imeiNumber);
+            fetchDeviceById(rowData.id);
         };
         updateCell.appendChild(updateButton);
 
@@ -69,7 +69,7 @@ export default function createDeviceTable(data) {
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
         deleteButton.onclick = function() {
-            deleteDevice(rowData.imeiNumber);
+            deleteDevice(rowData.id);
         };
         deleteCell.appendChild(deleteButton);
     });
