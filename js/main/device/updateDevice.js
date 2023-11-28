@@ -28,8 +28,8 @@ export function updateDevicePage(device) {
 
 
     const deviceUpdateTemplate = `
-        <h2 id="updateDeviceHeading">Update Device</h2>
-        <form id="updateDeviceForm">
+        <h2 id="updateDeviceHeading">Update Device for ${device.id}</h2>
+        <form id="updateDeviceForm">        
             <label for="IMEINumber">IMEI Number:</label>
             <input type="text" id="IMEINumber" name="IMEINumber" value="${device.imeiNumber}" required>
 
@@ -78,7 +78,7 @@ export function updateDevicePage(device) {
     // Attach event listener to the update button
     const updateButton = document.getElementById('updateDeviceButton');
     if (updateButton) {
-        updateButton.addEventListener('click', () => updateDevice(device.imeiNumber));
+        updateButton.addEventListener('click', () => updateDevice(device.id));
     } else {
         console.error("Update button not found");
     }
