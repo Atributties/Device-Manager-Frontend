@@ -47,6 +47,11 @@ export default function setupNavbarListeners() {
         clearMainContainer();
     });
 
+    document.getElementById("update-user")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearMainContainer();
+    });
+
     function clearMainContainer() {
         const mainContainer = document.getElementById('main-container');
         mainContainer.innerHTML = ''; // Clear the content
