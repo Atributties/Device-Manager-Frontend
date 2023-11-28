@@ -20,7 +20,7 @@ export default function createDeviceTable(data) {
     const headerRow = header.insertRow();
 
     // Define the fields from your Device entity that you want to display
-    const desiredFields = ['imeiNumber', 'serialNumber', 'deviceType', 'deviceModel', 'deviceStatus', 'comments', 'dateCreated', 'lastUpdated'];
+    const desiredFields = ['id', 'imeiNumber', 'serialNumber', 'deviceType', 'deviceModel', 'deviceStatus', 'comments', 'dateCreated', 'lastUpdated'];
 
     // Create column headers for desired fields
     desiredFields.forEach(field => {

@@ -1,3 +1,5 @@
+import { deleteUser }  from '../main/user/deleteUser.js';
+import { updateUser1 }  from '../main/user/updateUser.js';
 export default function createTable(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
@@ -25,6 +27,11 @@ export default function createTable(data) {
         headerRow.appendChild(th);
     });
 
+    // Adding headers for actions
+    const actionTh = document.createElement("th");
+    actionTh.innerHTML = "Actions";
+    headerRow.appendChild(actionTh);
+
     const tbody = document.createElement("tbody");
 
     data.forEach(rowData => {
@@ -33,9 +40,23 @@ export default function createTable(data) {
             const cell = row.insertCell();
             cell.innerHTML = rowData[field] || ''; // Handle undefined or missing values
         });
+
+        // Add update and delete buttons
+        const actionCell = row.insertCell();
+        const updateBtn = document.createElement("button");
+        updateBtn.innerHTML = "Update";
+        updateBtn.addEventListener("click", () => updateUser1(rowData.id)); // Assuming id is the unique identifier
+        actionCell.appendChild(updateBtn);
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.addEventListener("click", () => deleteUser(rowData.id));
+        actionCell.appendChild(deleteBtn);
     });
 
     table.appendChild(tbody);
     mainContainer.appendChild(table);
 }
+
+// ... (Rest of your deleteUser and fetchUserById functions)
 
