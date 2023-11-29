@@ -3,6 +3,10 @@ import getUserTable from "../main/user/getUserTable.js";
 import Main from "../../components/main/Main.js";
 import createDevicePage from "../main/device/createDevice.js";
 import getDeviceTable from "../main/device/getDeviceTable.js";
+import createSimCardPage from "../main/simcard/createSimcard.js";
+import createDataCardPage from "../main/datacard/createDatacard.js";
+import getDatacardTable from "../main/datacard/getDatacardTable.js";
+import getSimcardTabel from "../main/simcard/getSimcardTabel.js";
 
 export default function setupNavbarListeners() {
     // Listener for "Create User" link
@@ -50,6 +54,27 @@ export default function setupNavbarListeners() {
     document.getElementById("update-user")?.addEventListener("click", (event) => {
         event.preventDefault();
         clearMainContainer();
+    });
+    document.getElementById('create-simCard')?.addEventListener("click", (event) => {
+        event.preventDefault();
+        createSimCardPage();
+    });
+    document.getElementById("create-dataCard")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        createDataCardPage();
+
+    });
+    document.getElementById("datacards")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        getDatacardTable();
+
+    });
+    document.getElementById("simcards")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        getSimcardTabel();
+
     });
 
     function clearMainContainer() {

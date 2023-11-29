@@ -5,7 +5,7 @@ import {getToken} from "../../../utils/jwtUtils.js";
 const url = 'http://localhost:8080/user';
 const token = getToken();
 
-export async function updateUser1(userId) {
+export async function updateUser(userId) {
     const updateUrl = url + "/" + userId;
     try {
         const user = await fetchAnyUrl(updateUrl, "PUT", token); // Await the Promise
@@ -49,7 +49,7 @@ export async function updateUser1(userId) {
                     <option value="USER" ${user.userType === 'USER' ? 'selected' : ''}>User</option>
                 </select>
 
-                <button type="button" onclick="updateUser(${user.id})" id="updateUserButton">Update User</button>
+                <button type="button" onclick="updateUserSubmit(${user.id})" id="updateUserButton">Update User</button>
             </form>
         `;
 
@@ -59,12 +59,12 @@ export async function updateUser1(userId) {
 
      // Attach event listener to the button after rendering the form
      document.getElementById('updateUserButton').addEventListener('click', function() {
-         updateUser(user);
+         updateUserSubmit(user);
      });
 }
 
 // Example function for updating user data (you can replace this with your actual logic)
-function updateUser(user) {
+function updateUserSubmit(user) {
     const formData = {
         firstname: document.getElementById('firstname').value,
         middlename: document.getElementById('middlename').value,

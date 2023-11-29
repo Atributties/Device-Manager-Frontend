@@ -10,17 +10,17 @@ export default function createSimCardPage() {
     const simCardCreationTemplate = `
         <h2 id="createSimCardHeading">Create SimCard</h2>
         <form id="createSimCardForm">
-            <label for="telefonNummer">Telefonnummer:</label>
-            <input type="text" id="telefonNummer" name="telefonNummer" required>
+            <label for="phoneNumber">phoneNumber:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required>
 
-            <label for="ICCIDNumber">IMSI Number:</label>
-            <input type="text" id="ICCIDNumber" name="ICCIDNumber" required>
+            <label for="iccidnumber">ICCID Number:</label>
+            <input type="text" id="iccidnumber" name="iccidnumber" required>
 
-            <label for="pinkode">PIN Code:</label>
-            <input type="text" id="pinkode" name="pinkode" required>
+            <label for="pin">PIN Code:</label>
+            <input type="text" id="pin" name="pin" required>
 
-            <label for="pukkode">PUK Code:</label>
-            <input type="text" id="pukkode" name="pukkode" required>
+            <label for="puk">PUK Code:</label>
+            <input type="text" id="puk" name="puk" required>
 
             <button type="button" onclick="submitSimCard()" id="createSimCardButton">Create SimCard</button>
         </form>
@@ -32,26 +32,29 @@ export default function createSimCardPage() {
     container.innerHTML = simCardCreationTemplate;
 }
 
-window.submitSimCard = function () {
+window.submitSimCard = async function () {
     const formData = {
-        telefonNummer: document.getElementById('telefonnummer').value,
-        ICCIDNumber: document.getElementById('ICCIDNumber').value,
-        pinkode: document.getElementById('pinkode').value,
-        pukkode: document.getElementById('pukkode').value
+        iccidNumber: document.getElementById('iccidnumber').value,
+        phoneNumber: document.getElementById('phoneNumber').value,
+        pin: document.getElementById('pin').value,
+        puk: document.getElementById('puk').value
     };
 
-    postObjectAsJson(simCardUrl, formData, "POST", getToken())
-        .then(response => {
-            if (response.ok) {
-                alert("SimCard created successfully");
-                window.location.reload();
-            } else {
-                alert("Failed to create SimCard. Status: " + response.status);
-            }
-        })
-        .catch(error => {
-            console.error("Error creating SimCard:", error);
-            alert("An error occurred while creating the SimCard.");
-        });
+    try {
+        // Perform any further processing or send the data to your backend
+        console.log(formData);
+        const response = await postObjectAsJson(simCardUrl, formData, "POST", token);
+
+        // Check the response status or perform other logic based on the response
+        if (response.ok) {
+            alert("Simcard created successfully");
+            window.location.reload();
+        } else {
+            alert("Failed to create simcard. Please check the form data and try again.");
+        }
+    } catch (error) {
+        console.error("Error submitting simcard:", error);
+        alert("An error occurred while creating the simcard. Please try again later.");
+    }
 
 }

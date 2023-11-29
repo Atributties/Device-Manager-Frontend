@@ -61,7 +61,7 @@ export default function createDevicePage() {
 }
 
 // Example function for submitting device data
-window.submitDevice = function () {
+window.submitDevice = async function () {
     const IMEINumberString = document.getElementById('IMEINumber').value;
 
     // Validate that IMEINumber is numeric and meets any other required criteria
@@ -82,9 +82,20 @@ window.submitDevice = function () {
         comments: document.getElementById('comments').value
     };
 
-    // Perform any further processing or send the data to your backend
-    console.log(formData);
-    postObjectAsJson(url, formData, "POST", token);
-   window.location.reload();
-    alert("Device created successfully")
+    try {
+        // Perform any further processing or send the data to your backend
+        console.log(formData);
+        const response = await postObjectAsJson(url, formData, "POST", token);
+
+        // Check the response status or perform other logic based on the response
+        if (response.ok) {
+            alert("Device created successfully");
+            window.location.reload();
+        } else {
+            alert("Failed to create device. Please check the form data and try again.");
+        }
+    } catch (error) {
+        console.error("Error submitting device:", error);
+        alert("An error occurred while creating the device. Please try again later.");
+    }
 }
