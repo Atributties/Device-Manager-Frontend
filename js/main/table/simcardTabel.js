@@ -1,6 +1,7 @@
-import { deleteUser }  from '../main/user/deleteUser.js';
-import { updateUser }  from '../main/user/updateUser.js';
-export default function createTable(data) {
+
+import deleteSimcard from "../simcard/deleteSimcard.js";
+
+export default function createSimcardTabel(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
         return;
@@ -18,7 +19,8 @@ export default function createTable(data) {
     const header = table.createTHead();
     const headerRow = header.insertRow();
 
-    const desiredFields = ['firstname', 'middlename', 'lastname', 'email', 'userType'];
+    // Extract headers from the first data entry's keys
+    const desiredFields = Object.keys(data[0]);
 
     // Create column headers for desired fields
     desiredFields.forEach(field => {
@@ -50,14 +52,10 @@ export default function createTable(data) {
 
         const deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "Delete";
-        deleteBtn.addEventListener("click", () => deleteUser(rowData.id));
+        deleteBtn.addEventListener("click", () => deleteSimcard(rowData.id));
         actionCell.appendChild(deleteBtn);
     });
 
     table.appendChild(tbody);
     mainContainer.appendChild(table);
 }
-
-
-// ... (Rest of your deleteUser and fetchUserById functions)
-

@@ -1,6 +1,6 @@
 
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
-import createDeviceTable from "../../table/deviceTabel.js";
+import createDeviceTable from "../table/deviceTabel.js";
 import {getToken} from "../../../utils/jwtUtils.js";
 
 

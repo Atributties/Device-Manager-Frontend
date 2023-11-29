@@ -1,3 +1,5 @@
+import deleteDatacard from "../datacard/deleteDatacard.js";
+
 
 export default function createDatacardTabel(data) {
     if (!data || data.length === 0) {
@@ -50,7 +52,7 @@ export default function createDatacardTabel(data) {
 
         const deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "Delete";
-        deleteBtn.addEventListener("click", () => deleteUser(rowData.id));
+        deleteBtn.addEventListener("click", () => deleteDatacard(rowData.id));
         actionCell.appendChild(deleteBtn);
     });
 

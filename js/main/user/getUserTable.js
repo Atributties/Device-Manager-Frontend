@@ -1,5 +1,5 @@
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
-import createTable from "../../table/userTabel.js";
+import createTable from "../table/userTabel.js";
 import { getToken } from "../../../utils/jwtUtils.js";
 
 export default async function getUserTable() {

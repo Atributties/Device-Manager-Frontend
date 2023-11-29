@@ -17,6 +17,12 @@ export default function adminNavBar() {
         `<li class="sidebar-brand">
             <a href="#" id="create-dataCard" class="text-light">Create Data-Card</a>
         </li>`,
+        `<li class="sidebar-brand">
+            <a href="#" id="datacards" class="text-light">Data-Cards</a>
+        </li>`,
+        `<li class="sidebar-brand">
+            <a href="#" id="simcards" class="text-light">Sim-Cards</a>
+        </li>`,
     ];
 
     return NavBar(additionalLiElements);
