@@ -10,8 +10,8 @@ export default function createDataCardPage() {
     const dataCardCreationTemplate = `
         <h2 id="createDataCardHeading">Create DataCard</h2>
         <form id="createDataCardForm">
-            <label for="imsinumber">IMSI Number:</label>
-            <input type="text" id="imsinumber" name="imsinumber" required>
+            <label for="ICCIDNumber">IMSI Number:</label>
+            <input type="text" id="ICCIDNumber" name="ICCIDNumber" required>
 
             <label for="pinkode">PIN Code:</label>
             <input type="text" id="pinkode" name="pinkode" required>
@@ -31,7 +31,7 @@ export default function createDataCardPage() {
 
 window.submitDataCard = function () {
     const formData = {
-        imsiNumber: document.getElementById('imsinumber').value,
+        ICCIDNumber: document.getElementById('ICCIDNumber').value,
         pinkode: document.getElementById('pinkode').value,
         pukkode: document.getElementById('pukkode').value
     };

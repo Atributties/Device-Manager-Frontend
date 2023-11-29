@@ -10,11 +10,11 @@ export default function createSimCardPage() {
     const simCardCreationTemplate = `
         <h2 id="createSimCardHeading">Create SimCard</h2>
         <form id="createSimCardForm">
-            <label for="telefonnummer">Telefonnummer:</label>
-            <input type="text" id="telefonnummer" name="telefonnummer" required>
+            <label for="telefonNummer">Telefonnummer:</label>
+            <input type="text" id="telefonNummer" name="telefonNummer" required>
 
-            <label for="imsinumber">IMSI Number:</label>
-            <input type="text" id="imsinumber" name="imsinumber" required>
+            <label for="ICCIDNumber">IMSI Number:</label>
+            <input type="text" id="ICCIDNumber" name="ICCIDNumber" required>
 
             <label for="pinkode">PIN Code:</label>
             <input type="text" id="pinkode" name="pinkode" required>
@@ -35,7 +35,7 @@ export default function createSimCardPage() {
 window.submitSimCard = function () {
     const formData = {
         telefonNummer: document.getElementById('telefonnummer').value,
-        imsiNumber: document.getElementById('imsinumber').value,
+        ICCIDNumber: document.getElementById('ICCIDNumber').value,
         pinkode: document.getElementById('pinkode').value,
         pukkode: document.getElementById('pukkode').value
     };
