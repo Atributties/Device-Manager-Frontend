@@ -44,7 +44,7 @@ export default function createUserPage() {
 }
 
 // Example function for submitting user data (you can replace this with your actual logic)
- window.submitUser = function () {
+window.submitUser = async function () {
     const formData = {
         firstname: document.getElementById('firstname').value,
         middlename: document.getElementById('middlename').value,
@@ -54,10 +54,21 @@ export default function createUserPage() {
         userType: document.getElementById('userType').value
     };
 
-    // Perform any further processing or send the data to your backend
-    console.log(formData);
-    postObjectAsJson(url, formData, "POST", token)
-     window.location.reload();
-    alert("User created successfully")
+    try {
+        // Perform any further processing or send the data to your backend
+        console.log(formData);
+        const response = await postObjectAsJson(url, formData, "POST", token);
+
+        // Check the response status or perform other logic based on the response
+        if (response.ok) {
+            alert("User created successfully");
+            window.location.reload();
+        } else {
+            alert("Failed to create user. Please check the form data and try again.");
+        }
+    } catch (error) {
+        console.error("Error submitting user:", error);
+        alert("An error occurred while creating the user. Please try again later.");
+    }
 }
 

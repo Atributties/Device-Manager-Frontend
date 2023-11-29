@@ -1,5 +1,5 @@
 import { deleteUser }  from '../main/user/deleteUser.js';
-import { updateUser1 }  from '../main/user/updateUser.js';
+import { updateUser }  from '../main/user/updateUser.js';
 export default function createTable(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
@@ -45,7 +45,7 @@ export default function createTable(data) {
         const actionCell = row.insertCell();
         const updateBtn = document.createElement("button");
         updateBtn.innerHTML = "Update";
-        updateBtn.addEventListener("click", () => updateUser1(rowData.id)); // Assuming id is the unique identifier
+        updateBtn.addEventListener("click", () => updateUser(rowData.id)); // Assuming id is the unique identifier
         actionCell.appendChild(updateBtn);
 
         const deleteBtn = document.createElement("button");
@@ -57,6 +57,7 @@ export default function createTable(data) {
     table.appendChild(tbody);
     mainContainer.appendChild(table);
 }
+
 
 // ... (Rest of your deleteUser and fetchUserById functions)
 

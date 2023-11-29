@@ -10,14 +10,14 @@ export default function createDataCardPage() {
     const dataCardCreationTemplate = `
         <h2 id="createDataCardHeading">Create DataCard</h2>
         <form id="createDataCardForm">
-            <label for="ICCIDNumber">IMSI Number:</label>
-            <input type="text" id="ICCIDNumber" name="ICCIDNumber" required>
+            <label for="iccidnumber">ICCID Number:</label>
+            <input type="text" id="iccidnumber" name="iccidnumber" required>
 
-            <label for="pinkode">PIN Code:</label>
-            <input type="text" id="pinkode" name="pinkode" required>
+            <label for="pin">PIN Code:</label>
+            <input type="text" id="pin" name="pin" required>
 
-            <label for="pukkode">PUK Code:</label>
-            <input type="text" id="pukkode" name="pukkode" required>
+            <label for="puk">PUK Code:</label>
+            <input type="text" id="puk" name="puk" required>
 
             <button type="button" onclick="submitDataCard()" id="createDataCardButton">Create DataCard</button>
         </form>
@@ -31,12 +31,12 @@ export default function createDataCardPage() {
 
 window.submitDataCard = function () {
     const formData = {
-        ICCIDNumber: document.getElementById('ICCIDNumber').value,
-        pinkode: document.getElementById('pinkode').value,
-        pukkode: document.getElementById('pukkode').value
+        iccidNumber: document.getElementById('iccidnumber').value,
+        pin: document.getElementById('pin').value,
+        puk: document.getElementById('puk').value
     };
 
-    postObjectAsJson(dataCardUrl, formData, "POST", getToken())
+    postObjectAsJson(dataCardUrl, formData, "POST", token)
         .then(response => {
             if (response.ok) {
                 alert("DataCard created successfully");

@@ -120,4 +120,3 @@ export function updateDevice(deviceId) {
         });
 }
 
-// Example usage: fetchDeviceById('123456789876543');
