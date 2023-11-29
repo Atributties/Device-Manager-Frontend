@@ -1,5 +1,6 @@
-
-export default function createSimcardTabel(data) {
+import { deleteUser }  from '../user/deleteUser.js';
+import { updateUser }  from '../user/updateUser.js';
+export default function createTable(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
         return;
@@ -17,8 +18,7 @@ export default function createSimcardTabel(data) {
     const header = table.createTHead();
     const headerRow = header.insertRow();
 
-    // Extract headers from the first data entry's keys
-    const desiredFields = Object.keys(data[0]);
+    const desiredFields = ['firstname', 'middlename', 'lastname', 'email', 'userType'];
 
     // Create column headers for desired fields
     desiredFields.forEach(field => {
@@ -57,3 +57,7 @@ export default function createSimcardTabel(data) {
     table.appendChild(tbody);
     mainContainer.appendChild(table);
 }
+
+
+// ... (Rest of your deleteUser and fetchUserById functions)
+

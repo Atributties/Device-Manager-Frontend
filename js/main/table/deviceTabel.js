@@ -1,5 +1,5 @@
-import deleteDevice from "../main/device/deleteDevice.js";
-import fetchDeviceById from "../main/device/updateDevice.js";
+import deleteDevice from "../device/deleteDevice.js";
+import fetchDeviceById from "../device/updateDevice.js";
 
 export default function createDeviceTable(data) {
     if (!data || data.length === 0) {

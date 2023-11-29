@@ -1,5 +1,5 @@
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
-import createDatacardTabel from "../../table/datacardTabel.js";
+import createDatacardTabel from "../table/datacardTabel.js";
 import {getToken} from "../../../utils/jwtUtils.js";
 
 
