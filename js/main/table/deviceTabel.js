@@ -13,6 +13,29 @@ export default function createDeviceTable(data) {
         return;
     }
 
+    // Create a dropdown for device statuses
+    const statusFilter = document.createElement("select");
+    statusFilter.id = "statusFilter";
+    const allStatusOption = document.createElement("option");
+    allStatusOption.value = "";
+    allStatusOption.text = "All Statuses";
+    statusFilter.appendChild(allStatusOption);
+
+    // Assuming you have an array of all possible device statuses
+    const deviceStatuses = ["IN_USE", "IN_STORAGE", "UNDER_REPAIR", "RETIRED"]; // Update this with real statuses
+    deviceStatuses.forEach(status => {
+        const option = document.createElement("option");
+        option.value = status;
+        option.text = status;
+        statusFilter.appendChild(option);
+    });
+
+    mainContainer.appendChild(statusFilter);
+
+    statusFilter.addEventListener("change", function() {
+        filterByStatus(this.value);
+    });
+
     const table = document.createElement("table");
     table.className = "custom-table";
 
@@ -41,7 +64,6 @@ export default function createDeviceTable(data) {
     const tbody = document.createElement("tbody");
 
     data.forEach(rowData => {
-        console.log("Row data:", rowData);
         const row = tbody.insertRow();
         row.id = 'row-' + rowData.id;
         desiredFields.forEach(field => {
@@ -59,12 +81,10 @@ export default function createDeviceTable(data) {
         const updateButton = document.createElement("button");
         updateButton.innerHTML = "Update";
         updateButton.onclick = function() {
-            console.log("Button clicked for device:", rowData);
             fetchDeviceById(rowData.id);
         };
         updateCell.appendChild(updateButton);
 
-        // Create Delete button
         const deleteCell = row.insertCell();
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
@@ -78,3 +98,16 @@ export default function createDeviceTable(data) {
     mainContainer.appendChild(table);
 }
 
+function filterByStatus(status) {
+    const rows = document.querySelectorAll("#main-container table tbody tr");
+
+    rows.forEach(row => {
+        const statusCell = row.cells[5]; // Adjust the index to match 'deviceStatus' column in your table
+        if (status === "" || statusCell.textContent === status) {
+            row.style.display = ""; // Show row
+        } else {
+            row.style.display = "none"; // Hide row
+        }
+    });
+
+}
