@@ -1,11 +1,12 @@
 
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import {getToken} from "../../../utils/jwtUtils.js";
+import fillDropdownUserTypes from "./fillDropdownUserTypes.js";
 
 const url = 'http://localhost:8080/user/register';
 const token = getToken()
 
-export default function createUserPage() {
+export default async function createUserPage() {
     console.log("createUserPage function called");
     // Define the user creation HTML template
     const userCreationTemplate = `
@@ -28,8 +29,7 @@ export default function createUserPage() {
 
             <label for="userType">User Type:</label>
             <select id="userType" name="userType" required>
-                <option value="DEVICE_ADMIN">Device Admin</option>
-                <option value="USER">User</option>
+          
             </select>
 
             <button type="button" onclick="submitUser()" id="createUserButton">Create User</button>
@@ -39,8 +39,9 @@ export default function createUserPage() {
     // Get the container element
     const container = document.getElementById('main-container');
     container.innerHTML = userCreationTemplate;
-    // Insert the generated HTML into the container
-    container.innerHTML = userCreationTemplate;
+    await fillDropdownUserTypes();
+
+
 }
 
 // Example function for submitting user data (you can replace this with your actual logic)

@@ -30,9 +30,13 @@ export default function createDatacardTable(data) {
     });
 
     // Adding headers for actions
-    const actionTh = document.createElement("th");
-    actionTh.innerHTML = "Actions";
-    headerRow.appendChild(actionTh);
+    const updateTh = document.createElement("th");
+    updateTh.innerHTML = "Update";
+    headerRow.appendChild(updateTh);
+
+    const deleteTh = document.createElement("th");
+    deleteTh.innerHTML = "Delete";
+    headerRow.appendChild(deleteTh);
 
     const tbody = document.createElement("tbody");
 
@@ -43,17 +47,21 @@ export default function createDatacardTable(data) {
             cell.innerHTML = rowData[field] || ''; // Handle undefined or missing values
         });
 
-        // Add update and delete buttons
-        const actionCell = row.insertCell();
+        // Add update button cell
+        const updateCell = row.insertCell();
         const updateBtn = document.createElement("button");
         updateBtn.innerHTML = "Update";
+        updateBtn.id = "updateButton";
         updateBtn.addEventListener("click", () => updateDataCard(rowData.id)); // Call the updateDataCard function
-        actionCell.appendChild(updateBtn);
+        updateCell.appendChild(updateBtn);
 
+        // Add delete button cell
+        const deleteCell = row.insertCell();
         const deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "Delete";
+        deleteBtn.id = "deleteButton";
         deleteBtn.addEventListener("click", () => deleteDatacard(rowData.id));
-        actionCell.appendChild(deleteBtn);
+        deleteCell.appendChild(deleteBtn);
     });
 
     table.appendChild(tbody);
