@@ -9,16 +9,10 @@ export default function systemAdminNavBar() {
             <a href="#" id="create-user" class="text-light" >Create User</a>
         </li>`,
         `<li class="sidebar-brand">
-            <a href="#" id="user-table" class="text-light" >Update User</a>
-        </li>`,
-        `<li class="sidebar-brand">
             <a href="#" id="devices" class="text-light">Devices</a>
         </li>`,
         `<li class="sidebar-brand">
             <a href="#" id="create-device" class="text-light">Create Device</a>
-        </li>`,
-        `<li class="sidebar-brand">
-            <a href="#" id="update-device" class="text-light">Update Devices</a>
         </li>`,
         `<li class="sidebar-brand">
             <a href="#" id="simcards" class="text-light">Sim-Cards</a>
@@ -27,16 +21,10 @@ export default function systemAdminNavBar() {
             <a href="#" id="create-simCard" class="text-light">Create Sim-Card</a>
         </li>`,
         `<li class="sidebar-brand">
-            <a href="#" id="update-simcard" class="text-light">Update Sim-Card</a>
-        </li>`,
-        `<li class="sidebar-brand">
             <a href="#" id="datacards" class="text-light">Data-Cards</a>
         </li>`,
         `<li class="sidebar-brand">
             <a href="#" id="create-dataCard" class="text-light">Create Data-Card</a>
-        </li>`,
-        `<li class="sidebar-brand">
-            <a href="#" id="update-datacard" class="text-light">update-Cards</a>
         </li>`,
     ];
     return NavBar(additionalLiElements);

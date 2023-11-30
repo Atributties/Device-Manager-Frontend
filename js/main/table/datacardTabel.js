@@ -1,7 +1,7 @@
 import deleteDatacard from "../datacard/deleteDatacard.js";
+import { updateDataCard } from "../datacard/updateDataCard.js"; // Import the updateDataCard function
 
-
-export default function createDatacardTabel(data) {
+export default function createDatacardTable(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
         return;
@@ -47,7 +47,7 @@ export default function createDatacardTabel(data) {
         const actionCell = row.insertCell();
         const updateBtn = document.createElement("button");
         updateBtn.innerHTML = "Update";
-        updateBtn.addEventListener("click", () => updateUser(rowData.id)); // Assuming id is the unique identifier
+        updateBtn.addEventListener("click", () => updateDataCard(rowData.id)); // Call the updateDataCard function
         actionCell.appendChild(updateBtn);
 
         const deleteBtn = document.createElement("button");

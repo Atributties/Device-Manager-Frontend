@@ -1,7 +1,7 @@
-
 import deleteSimcard from "../simcard/deleteSimcard.js";
+import { updateSimCard } from "../simcard/updateSimCard.js"; // Import the updateSimCard function
 
-export default function createSimcardTabel(data) {
+export default function createSimcardTable(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
         return;
@@ -47,7 +47,7 @@ export default function createSimcardTabel(data) {
         const actionCell = row.insertCell();
         const updateBtn = document.createElement("button");
         updateBtn.innerHTML = "Update";
-        updateBtn.addEventListener("click", () => updateUser(rowData.id)); // Assuming id is the unique identifier
+        updateBtn.addEventListener("click", () => updateSimCard(rowData.id)); // Call the updateSimCard function
         actionCell.appendChild(updateBtn);
 
         const deleteBtn = document.createElement("button");
