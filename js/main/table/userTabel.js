@@ -27,10 +27,14 @@ export default function createTable(data) {
         headerRow.appendChild(th);
     });
 
-    // Adding headers for actions
-    const actionTh = document.createElement("th");
-    actionTh.innerHTML = "Actions";
-    headerRow.appendChild(actionTh);
+    // Adding headers for update and delete
+    const updateTh = document.createElement("th");
+    updateTh.innerHTML = "Update";
+    headerRow.appendChild(updateTh);
+
+    const deleteTh = document.createElement("th");
+    deleteTh.innerHTML = "Delete";
+    headerRow.appendChild(deleteTh);
 
     const tbody = document.createElement("tbody");
 
@@ -41,23 +45,26 @@ export default function createTable(data) {
             cell.innerHTML = rowData[field] || ''; // Handle undefined or missing values
         });
 
-        // Add update and delete buttons
-        const actionCell = row.insertCell();
+        // Add update button
+        const updateCell = row.insertCell();
         const updateBtn = document.createElement("button");
         updateBtn.innerHTML = "Update";
+        updateBtn.id = "updateButton"; // Assigning the id for styling
         updateBtn.addEventListener("click", () => updateUser(rowData.id)); // Assuming id is the unique identifier
-        actionCell.appendChild(updateBtn);
+        updateCell.appendChild(updateBtn);
 
+        // Add delete button
+        const deleteCell = row.insertCell();
         const deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "Delete";
+        deleteBtn.id = "deleteButton"; // Assigning the id for styling
         deleteBtn.addEventListener("click", () => deleteUser(rowData.id));
-        actionCell.appendChild(deleteBtn);
+        deleteCell.appendChild(deleteBtn);
     });
 
     table.appendChild(tbody);
     mainContainer.appendChild(table);
 }
-
 
 // ... (Rest of your deleteUser and fetchUserById functions)
 

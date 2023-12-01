@@ -4,6 +4,9 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+
+
+
 #main-container {
     margin-left: 20%;
 }
@@ -123,23 +126,20 @@
 /* styles.css */
 
 /* Custom styles for the table container */
-#test-table {
-    margin-top: 20px;
-}
-
 /* Custom styles for the table */
 .custom-table {
     width: 100%;
-    border: 1px solid #ddd; /* Bootstrap border color */
+    border: none; /* Remove border to eliminate the gray line */
     border-collapse: collapse;
     margin-bottom: 20px;
-    border-radius: 10px; /* Adjust the value as needed for the desired roundness */
+    border-radius: 10px;
     overflow: hidden; /* Ensures rounded corners are applied */
+
 }
 
 /* Custom styles for table headers */
 .custom-table th {
-    background-color: rgb(68, 66, 66); /* Updated color from #007bff */
+    background-color: #212529; /* Updated color from #007bff */
     color: #fff;
     padding: 15px;
     text-align: left;
@@ -155,15 +155,18 @@
 
 /* Stripe effect on table rows */
 .custom-table tbody tr:nth-child(even) {
-    background-color: #f5f5f5; /* Light gray for striped effect */
+    background-color: #f1f1f1; /* Light gray for even rows */
+}
+
+/* Different background color for odd rows */
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #e5e4e4; /* A different color for odd rows */
 }
 
 /* Hover effect on table rows */
 .custom-table tbody tr:hover {
     background-color: #e0e0e0; /* Lighter gray on hover */
 }
-
-
 
 
 /* styles.css */
@@ -224,6 +227,35 @@ select {
     background-color: #444242FF; /* Darker shade of Bootstrap primary color */
 }
 
+#updateButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#deleteButton {
+    background-color: #ff1210;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#deleteButton:hover {
+    background-color: #e02a2a; /* Darker shade of Bootstrap primary color */
+}
+
+
 #createUserHeading {
     text-align: center;
     color: #444242; /* Bootstrap primary color */
@@ -231,5 +263,163 @@ select {
 
 #bigLogin {
     margin-top: 20px;
+}
+
+
+/*
+Style for create device
+ */
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createDeviceHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createDeviceForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#createDeviceButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createDeviceButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+/*
+Simcard creation
+ */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createSimCardHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createSimCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#createSimCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createSimCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+/*
+Style for create datacard
+ */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createDataCardHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createDataCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+#createDataCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createDataCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
 }
 

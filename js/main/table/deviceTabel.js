@@ -80,6 +80,7 @@ export default function createDeviceTable(data) {
         const updateCell = row.insertCell();
         const updateButton = document.createElement("button");
         updateButton.innerHTML = "Update";
+        updateButton.id = "updateButton"; // Assigning the id for styling
         updateButton.onclick = function() {
             fetchDeviceById(rowData.id);
         };
@@ -88,6 +89,7 @@ export default function createDeviceTable(data) {
         const deleteCell = row.insertCell();
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
+        deleteButton.id = "deleteButton"; // Assigning the id for styling
         deleteButton.onclick = function() {
             deleteDevice(rowData.id);
         };

@@ -5,7 +5,6 @@ import updateNavbarForRole from "./js/navBar/fillNavBar.js";
 import logout from './utils/logout.js';
 import getUserTable from "./js/main/user/getUserTable.js";
 import setupNavbarListeners from "./js/navBar/setupNavbarListeners.js";
-import Main from "./components/main/Main.js";
 
 
 async function initializeApp() {
@@ -22,7 +21,6 @@ async function initializeApp() {
 
     setupNavbarListeners();
     await getUserTable();
-    document.getElementById('main-container').innerHTML = Main();
     window.logout = logout;
 }
 

@@ -3,6 +3,9 @@ import NavBar from "../../components/navBar/NavBar.js";
 export default function systemAdminNavBar() {
     const additionalLiElements = [
         `<li class="sidebar-brand">
+            <a href="#" id="device-manager-link" class="text-light">Device Manager</a>
+        </li>`,
+        `<li class="sidebar-brand">
             <a href="#" id="employees" class="text-light">Users</a>
         </li>`,
         `<li class="sidebar-brand">

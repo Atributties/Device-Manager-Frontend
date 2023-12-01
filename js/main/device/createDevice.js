@@ -1,11 +1,16 @@
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import {getToken} from "../../../utils/jwtUtils.js";
+import fillDropdownWithDevicetypes from "./fillDropdownDeviceTypes.js";
+import fillDropdownDeviceStatus from "./fillDropdownDeviceStatus.js";
+
 
 const token = getToken()
 
+
+
 const url = 'http://localhost:8080/device'
 
-export default function createDevicePage() {
+export default async function createDevicePage() {
     // Define the device creation HTML template
     const deviceCreationTemplate = `
         <h2 id="createDeviceHeading">Create Device</h2>
@@ -18,20 +23,7 @@ export default function createDevicePage() {
 
             <label for="deviceType">Device Type:</label>
             <select id="deviceType" name="deviceType" required>
-              <option value="ACTION_CAMERA">Action Camera (AC)</option>
-    <option value="DOCKING_STATION">Docking Station (DS)</option>
-    <option value="HEADSET">Headset (HS)</option>
-    <option value="INTERNET_SUBSCRIPTION">Internet Subscription (IS)</option>
-    <option value="MOBILE_PHONE">Mobile Phone (MP)</option>
-    <option value="PC">PC (PC)</option>
-    <option value="ROUTER">Router (RT)</option>
-    <option value="SCREEN">Screen (SC)</option>
-    <option value="SMARTPHONE">Smartphone (SP)</option>
-    <option value="TABLET">Tablet (TB)</option>
-    <option value="MOBILE_PHONE_ACCESSORIES">Mobile Phone Accessories (MPA)</option>
-    <option value="TABLET_ACCESSORIES">Tablet Accessories (TA)</option>
-    <option value="GPS">GPS (GPS)</option>
-    <option value="WEBCAM">Webcam (WC)</option>
+                
             </select>
 
             <label for="deviceModel">Device Model:</label>
@@ -39,11 +31,8 @@ export default function createDevicePage() {
 
             <label for="deviceStatus">Device Status:</label>
             <select id="deviceStatus" name="deviceStatus" required>
-    <option value="IN_USE">In Use</option>
-    <option value="IN_STORAGE">In Storage</option>
-    <option value="UNDER_REPAIR">Under Repair</option>
-    <option value="RETIRED">Retired</option>
-</select>
+            
+            </select>
 
 
             <label for="comments">Comments:</label>
@@ -56,8 +45,11 @@ export default function createDevicePage() {
     // Get the container element
     const container = document.getElementById('main-container');
 
+
     // Insert the generated HTML into the container
     container.innerHTML = deviceCreationTemplate;
+    await fillDropdownWithDevicetypes()
+    await fillDropdownDeviceStatus()
 }
 
 // Example function for submitting device data
@@ -98,4 +90,10 @@ window.submitDevice = async function () {
         console.error("Error submitting device:", error);
         alert("An error occurred while creating the device. Please try again later.");
     }
+
 }
+
+
+
+
+
