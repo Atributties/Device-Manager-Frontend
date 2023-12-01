@@ -155,12 +155,12 @@
 
 /* Stripe effect on table rows */
 .custom-table tbody tr:nth-child(even) {
-    background-color: #ffffff; /* Light gray for even rows */
+    background-color: #f1f1f1; /* Light gray for even rows */
 }
 
 /* Different background color for odd rows */
 .custom-table tbody tr:nth-child(odd) {
-    background-color: #f1f1f1; /* A different color for odd rows */
+    background-color: #e5e4e4; /* A different color for odd rows */
 }
 
 /* Hover effect on table rows */
