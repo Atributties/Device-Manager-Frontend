@@ -20,6 +20,7 @@ export async function assignDevice(deviceId, userId) {
         }
 
         alert("Device assigned successfully");
+        window.location.reload();
     } catch (error) {
         console.error('Error assigning device:', error);
         alert(`An error occurred while assigning the device: ${error.message}`);
