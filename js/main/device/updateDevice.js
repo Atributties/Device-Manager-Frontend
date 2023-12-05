@@ -1,6 +1,8 @@
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import {getToken} from "../../../utils/jwtUtils.js";
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
+import fillDropdownWithDevicetypes from "./fillDropdownDeviceTypes.js";
+import fillDropdownDeviceStatus from "./fillDropdownDeviceStatus.js";
 
 const deviceUrl = 'http://localhost:8080/device';
 const token = getToken();
@@ -18,7 +20,7 @@ export default async function fetchDeviceById(deviceId) {
 }
 
 // Function to render the update device form
-export function updateDevicePage(device) {
+export async function updateDevicePage(device) {
     console.log("Device in updateDevicePage:", device);
     const container = document.getElementById('main-container');
     if (!container) {
@@ -38,20 +40,7 @@ export function updateDevicePage(device) {
 
             <label for="deviceType">Device Type:</label>
             <select id="deviceType" name="deviceType" required>
-                <option value="ACTION_CAMERA" ${device.deviceType === 'ACTION_CAMERA' ? 'selected' : ''}>Action Camera</option>
-                <option value="DOCKING_STATION" ${device.deviceType === 'DOCKING_STATION' ? 'selected' : ''}>Docking Station</option>
-                <option value="HEADSET" ${device.deviceType === 'HEADSET' ? 'selected' : ''}>Headset</option>
-                <option value="INTERNET_SUBSCRIPTION" ${device.deviceType === 'INTERNET_SUBSCRIPTION' ? 'selected' : ''}>Internet Subscription</option>
-                <option value="MOBILE_PHONE" ${device.deviceType === 'MOBILE_PHONE' ? 'selected' : ''}>Mobile Phone</option>
-                <option value="PC" ${device.deviceType === 'PC' ? 'selected' : ''}>PC</option>
-                <option value="ROUTER" ${device.deviceType === 'ROUTER' ? 'selected' : ''}>Router</option>
-                <option value="SCREEN" ${device.deviceType === 'SCREEN' ? 'selected' : ''}>Screen</option>
-                <option value="SMARTPHONE" ${device.deviceType === 'SMARTPHONE' ? 'selected' : ''}>Smartphone</option>
-                <option value="TABLET" ${device.deviceType === 'TABLET' ? 'selected' : ''}>Tablet</option>
-                <option value="MOBILE_PHONE_ACCESSORIES" ${device.deviceType === 'MOBILE_PHONE_ACCESSORIES' ? 'selected' : ''}>Mobile Phone Accessories</option>
-                <option value="TABLET_ACCESSORIES" ${device.deviceType === 'TABLET_ACCESSORIES' ? 'selected' : ''}>Tablet Accessories</option>
-                <option value="GPS" ${device.deviceType === 'GPS' ? 'selected' : ''}>GPS</option>
-                <option value="WEBCAM" ${device.deviceType === 'WEBCAM' ? 'selected' : ''}>Webcam</option>
+                
             </select>
 
             <label for="deviceModel">Device Model:</label>
@@ -59,10 +48,7 @@ export function updateDevicePage(device) {
 
             <label for="deviceStatus">Device Status:</label>
             <select id="deviceStatus" name="deviceStatus" required>
-                <option value="IN_USE" ${device.deviceStatus === 'IN_USE' ? 'selected' : ''}>In Use</option>
-                <option value="IN_STORAGE" ${device.deviceStatus === 'IN_STORAGE' ? 'selected' : ''}>In Storage</option>
-                <option value="UNDER_REPAIR" ${device.deviceStatus === 'UNDER_REPAIR' ? 'selected' : ''}>Under Repair</option>
-                <option value="RETIRED" ${device.deviceStatus === 'RETIRED' ? 'selected' : ''}>Retired</option>
+                
             </select>
 
             <label for="comments">Comments:</label>
@@ -74,6 +60,8 @@ export function updateDevicePage(device) {
 
 
     container.innerHTML = deviceUpdateTemplate;
+    await fillDropdownWithDevicetypes()
+    await fillDropdownDeviceStatus()
 
     // Attach event listener to the update button
     const updateButton = document.getElementById('updateDeviceButton');

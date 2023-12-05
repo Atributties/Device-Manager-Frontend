@@ -29,7 +29,8 @@ export default async function createDevicePage() {
             <label for="deviceModel">Device Model:</label>
             <input type="text" id="deviceModel" name="deviceModel" required>
 
-            <label for="deviceStatus">Device Status (IN_STORAGE):</label>
+            <label for="deviceStatus">Device Status:</label>
+            <blockquote>In storage (DEFAULT)</blockquote>
 
             <label for="comments">Comments:</label>
             <textarea id="comments" name="comments"></textarea>

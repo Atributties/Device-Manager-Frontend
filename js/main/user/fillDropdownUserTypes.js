@@ -1,31 +1,31 @@
 import {getToken} from "../../../utils/jwtUtils.js";
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
 
-async function fetchUserTypes() {
-    const usertypesUrl = 'http://localhost:8080/enums/usertypes'
+async function fetchUserRoles() {
+    const userRolesUrl = 'http://localhost:8080/enums/userRoles'
     const accessToken = getToken()
-    const usertypes = await fetchAnyUrl(usertypesUrl, {}, accessToken);
+    const userRoles = await fetchAnyUrl(userRolesUrl, {}, accessToken);
 
-    return usertypes;
+    return userRoles;
 
 }
 
-export default async function fillDropdownUserTypes(){
+export default async function fillDropdownUserRoles(){
     // Fetch user types and update the dropdown
     try {
-        const usertypes = await fetchUserTypes();
+        const userRoles = await fetchUserRoles();
 
-        const userTypesDropdown = document.getElementById('userType');
+        const userRolesDropdown = document.getElementById('userRole');
 
         // Populate the dropdown with options
-        usertypes.forEach((type) => {
+        userRoles.forEach((type) => {
             const option = document.createElement('option');
             option.value = type.enumValue;
             option.text = type.displayName;
-            userTypesDropdown.add(option);
+            userRolesDropdown.add(option);
         });
     } catch (error) {
-        console.error("Error fetching device types:", error);
+        console.error("Error fetching user roles:", error);
         // Handle the error, e.g., display a default option or show an error message
     }
 }
