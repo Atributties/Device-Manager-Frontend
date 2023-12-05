@@ -1,40 +1,5 @@
 import deleteDevice from "../device/deleteDevice.js";
 import fetchDeviceById from "../device/updateDevice.js";
-import { assignDevice } from '../device/assignDevice.js';  // Ensure this path is correct
-import { fetchUsers } from '../../../api/fetchUsers.js';      // Ensure this path is correct
-
-// Function to create the assign button and user dropdown
-async function createAssignButton(row, rowData) {
-    const assignCell = row.insertCell();
-    const assignCellButton = row.insertCell();
-
-    // Create the user selection dropdown
-    const userSelect = document.createElement("select");
-    userSelect.id = `userSelect-${rowData.id}`;
-    const noneOption = document.createElement("option");
-    noneOption.value = "none";
-    noneOption.textContent = "None";
-    userSelect.appendChild(noneOption);
-    const users = await fetchUsers();
-    users.forEach(user => {
-        const option = document.createElement("option");
-        option.value = user.id;
-        option.textContent = user.email;
-        userSelect.appendChild(option);
-    });
-    assignCell.appendChild(userSelect);
-
-    // Create the assign button
-    const assignButton = document.createElement("button");
-    assignButton.innerHTML = "Assign";
-    assignButton.id = "assignButton";
-    assignButton.onclick = function() {
-        let selectedUserId = userSelect.value === "none" ? null : userSelect.value;
-        assignDevice(rowData.id, selectedUserId);
-    };
-    assignCellButton.appendChild(assignButton);
-}
-
 
 
 export default async function createDeviceTable(data) {
@@ -54,7 +19,7 @@ export default async function createDeviceTable(data) {
     statusFilter.id = "statusFilter";
     const allStatusOption = document.createElement("option");
     allStatusOption.value = "";
-    allStatusOption.text = "All Statuses";
+    allStatusOption.text = "All Devices";
     statusFilter.appendChild(allStatusOption);
 
     // Assuming you have an array of all possible device statuses
@@ -93,17 +58,11 @@ export default async function createDeviceTable(data) {
     updateTh.innerHTML = "Update";
     headerRow.appendChild(updateTh);
 
-    const assignTh = document.createElement("th");
-    assignTh.innerHTML = "Assign User";
-    headerRow.appendChild(assignTh);
-
-    const assignBtnTh = document.createElement("th");
-    assignBtnTh.innerHTML = "Assign";
-    headerRow.appendChild(assignBtnTh);
 
     const deleteTh = document.createElement("th");
     deleteTh.innerHTML = "Delete";
     headerRow.appendChild(deleteTh);
+
 
     const tbody = document.createElement("tbody");
 
@@ -130,8 +89,6 @@ export default async function createDeviceTable(data) {
         updateCell.appendChild(updateButton);
 
 
-        await createAssignButton(row, rowData);
-
         const deleteCell = row.insertCell();
         const deleteButton = document.createElement("button");
         deleteButton.innerHTML = "Delete";
@@ -140,6 +97,8 @@ export default async function createDeviceTable(data) {
             deleteDevice(rowData.id);
         };
         deleteCell.appendChild(deleteButton);
+
+
     }
 
     table.appendChild(tbody);

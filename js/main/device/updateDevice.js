@@ -3,9 +3,13 @@ import {getToken} from "../../../utils/jwtUtils.js";
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
 import fillDropdownWithDevicetypes from "./fillDropdownDeviceTypes.js";
 import fillDropdownDeviceStatus from "./fillDropdownDeviceStatus.js";
+import fillDropdownWithUsers from "../user/fillDropdownWithUsers.js";
+
 
 const deviceUrl = 'http://localhost:8080/device';
 const token = getToken();
+
+
 
 // Function to fetch a device by ID and display the update form
 export default async function fetchDeviceById(deviceId) {
@@ -28,7 +32,6 @@ export async function updateDevicePage(device) {
         return;
     }
 
-
     const deviceUpdateTemplate = `
         <h2 id="updateDeviceHeading">Update Device for ${device.id}</h2>
         <form id="updateDeviceForm">        
@@ -40,7 +43,7 @@ export async function updateDevicePage(device) {
 
             <label for="deviceType">Device Type:</label>
             <select id="deviceType" name="deviceType" required>
-                
+                <!-- Populate with device types -->
             </select>
 
             <label for="deviceModel">Device Model:</label>
@@ -48,20 +51,25 @@ export async function updateDevicePage(device) {
 
             <label for="deviceStatus">Device Status:</label>
             <select id="deviceStatus" name="deviceStatus" required>
-                
+                <!-- Populate with device statuses -->
             </select>
 
             <label for="comments">Comments:</label>
             <textarea id="comments" name="comments">${device.comments}</textarea>
 
+            <label for="users">Assign User:</label>
+            <select id="users" name="users" required>
+                <!-- Populate with device statuses -->
+            </select>
+            
             <button type="button" id="updateDeviceButton">Update Device</button>
         </form>
     `;
 
-
     container.innerHTML = deviceUpdateTemplate;
-    await fillDropdownWithDevicetypes()
-    await fillDropdownDeviceStatus()
+    await fillDropdownWithDevicetypes();
+    await fillDropdownDeviceStatus();
+    await fillDropdownWithUsers(device.user ? device.user.id : null);
 
     // Attach event listener to the update button
     const updateButton = document.getElementById('updateDeviceButton');
@@ -72,6 +80,7 @@ export async function updateDevicePage(device) {
     }
 }
 
+
 // Function to handle the device update logic
 export function updateDevice(deviceId) {
     // Read updated values from form inputs
@@ -81,6 +90,10 @@ export function updateDevice(deviceId) {
     const deviceModel = document.getElementById('deviceModel').value;
     const deviceStatus = document.getElementById('deviceStatus').value;
     const comments = document.getElementById('comments').value;
+    const user = document.getElementById('users').value;
+
+    // Convert the user ID to a number or keep it as null
+    const userId = user === 'None' ? null : parseInt(user, 10);
 
     const formData = {
         imeiNumber, // Assuming imeiNumber is not meant to be changed, use original
@@ -88,7 +101,8 @@ export function updateDevice(deviceId) {
         deviceType,
         deviceModel,
         deviceStatus,
-        comments
+        comments,
+        user: userId !== null ? { id: userId } : null, // Include the user ID as an object or null
     };
 
     console.log('Device ID:', deviceId);
@@ -107,4 +121,3 @@ export function updateDevice(deviceId) {
             alert("An error occurred while updating the device.");
         });
 }
-

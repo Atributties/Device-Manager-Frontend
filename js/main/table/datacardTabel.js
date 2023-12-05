@@ -1,7 +1,10 @@
 import deleteDatacard from "../datacard/deleteDatacard.js";
-import { updateDataCard } from "../datacard/updateDataCard.js"; // Import the updateDataCard function
+import { updateDataCard } from "../datacard/updateDataCard.js";
+import {fetchUsers} from "../../../api/fetchUsers.js";
 
-export default function createDatacardTable(data) {
+
+
+export default async function createDatacardTable(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
         return;
@@ -40,7 +43,7 @@ export default function createDatacardTable(data) {
 
     const tbody = document.createElement("tbody");
 
-    data.forEach(rowData => {
+    for (const rowData of data) {
         const row = tbody.insertRow();
         desiredFields.forEach(field => {
             const cell = row.insertCell();
@@ -62,7 +65,9 @@ export default function createDatacardTable(data) {
         deleteBtn.id = "deleteButton";
         deleteBtn.addEventListener("click", () => deleteDatacard(rowData.id));
         deleteCell.appendChild(deleteBtn);
-    });
+
+
+    }
 
     table.appendChild(tbody);
     mainContainer.appendChild(table);
