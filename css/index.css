@@ -134,6 +134,7 @@
     margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden; /* Ensures rounded corners are applied */
+    table-layout: auto;
 
 }
 
@@ -150,7 +151,6 @@
     padding: 15px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
 }
 
 /* Stripe effect on table rows */
@@ -241,6 +241,34 @@ select {
     background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
 }
 
+#updateButton1 {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateButton1:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#assignButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#assignButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
 #deleteButton {
     background-color: #ff1210;
     color: #fff;
@@ -255,6 +283,19 @@ select {
     background-color: #e02a2a; /* Darker shade of Bootstrap primary color */
 }
 
+#deleteButton1 {
+    background-color: #ff1210;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#deleteButton1:hover {
+    background-color: #e02a2a; /* Darker shade of Bootstrap primary color */
+}
 
 #createUserHeading {
     text-align: center;
