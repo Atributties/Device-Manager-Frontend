@@ -134,6 +134,7 @@
     margin-bottom: 20px;
     border-radius: 10px;
     overflow: hidden; /* Ensures rounded corners are applied */
+    table-layout: auto;
 
 }
 
@@ -150,7 +151,6 @@
     padding: 15px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
 }
 
 /* Stripe effect on table rows */
@@ -241,6 +241,34 @@ select {
     background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
 }
 
+#updateButton1 {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateButton1:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#assignButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#assignButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
 #deleteButton {
     background-color: #ff1210;
     color: #fff;
@@ -255,6 +283,19 @@ select {
     background-color: #e02a2a; /* Darker shade of Bootstrap primary color */
 }
 
+#deleteButton1 {
+    background-color: #ff1210;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#deleteButton1:hover {
+    background-color: #e02a2a; /* Darker shade of Bootstrap primary color */
+}
 
 #createUserHeading {
     text-align: center;
@@ -422,4 +463,213 @@ textarea {
 #createDataCardButton:hover {
     background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
 }
+
+
+/*
+Update datacard style
+ */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateDataCardHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#updateDataCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateDataCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateDataCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+
+/*
+Update user style
+ */
+
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateUserHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#updateUserForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateUserButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateUserButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+/*
+Update device
+ */
+
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateDeviceHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#updateDeviceForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateDeviceButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateDeviceButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+/*
+Update simcard
+ */
+
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateSimCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateSimCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateSimCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
 

@@ -30,10 +30,7 @@ export default async function createDevicePage() {
             <input type="text" id="deviceModel" name="deviceModel" required>
 
             <label for="deviceStatus">Device Status:</label>
-            <select id="deviceStatus" name="deviceStatus" required>
-            
-            </select>
-
+            <blockquote>In storage (DEFAULT)</blockquote>
 
             <label for="comments">Comments:</label>
             <textarea id="comments" name="comments"></textarea>
@@ -70,7 +67,7 @@ window.submitDevice = async function () {
         serialNumber: document.getElementById('SerialNumber').value,
         deviceType: document.getElementById('deviceType').value,
         deviceModel: document.getElementById('deviceModel').value,
-        deviceStatus: document.getElementById('deviceStatus').value,
+        deviceStatus: "IN_STORAGE",
         comments: document.getElementById('comments').value
     };
 
