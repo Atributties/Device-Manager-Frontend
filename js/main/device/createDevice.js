@@ -1,7 +1,7 @@
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import {getToken} from "../../../utils/jwtUtils.js";
 import fillDropdownWithDevicetypes from "./fillDropdownDeviceTypes.js";
-import fillDropdownDeviceStatus from "./fillDropdownDeviceStatus.js";
+import fillDropdownStatus from "../../../api/fillDropdownWithStatus.js";
 
 
 const token = getToken()
@@ -29,7 +29,7 @@ export default async function createDevicePage() {
             <label for="deviceModel">Device Model:</label>
             <input type="text" id="deviceModel" name="deviceModel" required>
 
-            <label for="deviceStatus">Device Status:</label>
+            <label for="status">Device Status:</label>
             <blockquote>In storage (DEFAULT)</blockquote>
 
             <label for="comments">Comments:</label>
@@ -46,7 +46,7 @@ export default async function createDevicePage() {
     // Insert the generated HTML into the container
     container.innerHTML = deviceCreationTemplate;
     await fillDropdownWithDevicetypes()
-    await fillDropdownDeviceStatus()
+    await fillDropdownStatus()
 }
 
 // Example function for submitting device data
@@ -67,7 +67,7 @@ window.submitDevice = async function () {
         serialNumber: document.getElementById('SerialNumber').value,
         deviceType: document.getElementById('deviceType').value,
         deviceModel: document.getElementById('deviceModel').value,
-        deviceStatus: "IN_STORAGE",
+        status: "IN_STORAGE",
         comments: document.getElementById('comments').value
     };
 

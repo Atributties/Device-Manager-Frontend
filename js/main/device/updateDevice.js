@@ -2,8 +2,8 @@ import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import {getToken} from "../../../utils/jwtUtils.js";
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
 import fillDropdownWithDevicetypes from "./fillDropdownDeviceTypes.js";
-import fillDropdownDeviceStatus from "./fillDropdownDeviceStatus.js";
-import fillDropdownWithUsers from "../user/fillDropdownWithUsers.js";
+import fillDropdownWithUsers from "../../../api/fillDropdownWithUsers.js";
+import fillDropdownStatus from "../../../api/fillDropdownWithStatus.js";
 
 
 const deviceUrl = 'http://localhost:8080/device';
@@ -49,8 +49,8 @@ export async function updateDevicePage(device) {
             <label for="deviceModel">Device Model:</label>
             <input type="text" id="deviceModel" name="deviceModel" value="${device.deviceModel}" required>
 
-            <label for="deviceStatus">Device Status:</label>
-            <select id="deviceStatus" name="deviceStatus" required>
+            <label for="status">Device Status:</label>
+            <select id="status" name="status" required>
                 <!-- Populate with device statuses -->
             </select>
 
@@ -68,7 +68,7 @@ export async function updateDevicePage(device) {
 
     container.innerHTML = deviceUpdateTemplate;
     await fillDropdownWithDevicetypes();
-    await fillDropdownDeviceStatus();
+    await fillDropdownStatus(device.status ? device.status : null);
     await fillDropdownWithUsers(device.user ? device.user.id : null);
 
     // Attach event listener to the update button
@@ -88,7 +88,7 @@ export function updateDevice(deviceId) {
     const serialNumber = document.getElementById('SerialNumber').value;
     const deviceType = document.getElementById('deviceType').value;
     const deviceModel = document.getElementById('deviceModel').value;
-    const deviceStatus = document.getElementById('deviceStatus').value;
+    const status = document.getElementById('status').value;
     const comments = document.getElementById('comments').value;
     const user = document.getElementById('users').value;
 
@@ -100,7 +100,7 @@ export function updateDevice(deviceId) {
         serialNumber,
         deviceType,
         deviceModel,
-        deviceStatus,
+        status,
         comments,
         user: userId !== null ? { id: userId } : null, // Include the user ID as an object or null
     };
