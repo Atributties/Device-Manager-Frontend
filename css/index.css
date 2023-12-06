@@ -244,6 +244,20 @@ select {
     background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
 }
 
+#viewDevicesButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#viewDevicesButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
 #updateButton1 {
     background-color: #444242FF;
     color: #fff;
