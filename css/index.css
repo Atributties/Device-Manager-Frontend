@@ -5,7 +5,9 @@
  */
 
 
-
+h2 {
+    margin-left: 50px;
+}
 
 #main-container {
     margin-left: 20%;
@@ -135,6 +137,7 @@
     border-radius: 10px;
     overflow: hidden; /* Ensures rounded corners are applied */
     table-layout: auto;
+    margin-left: 50px;
 
 }
 
