@@ -7,6 +7,7 @@ import createDataCardPage from "../main/datacard/createDatacard.js";
 import getDatacardTable from "../main/datacard/getDatacardTable.js";
 import getSimcardTabel from "../main/simcard/getSimcardTabel.js";
 import fetchAllData from "../main/dataInformation/barChartAllData.js";
+import getDeviceTableUser from "../main/device/getDeviceTableUser.js";
 
 export default function setupNavbarListeners() {
     // Listener for "Create User" link
@@ -80,7 +81,12 @@ export default function setupNavbarListeners() {
         event.preventDefault();
         clearMainContainer();
         fetchAllData();
+    });
 
+    document.getElementById("user-devices")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        getDeviceTableUser();
     });
 
     function clearMainContainer() {
