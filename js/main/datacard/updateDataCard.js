@@ -1,6 +1,8 @@
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
 import { getToken } from "../../../utils/jwtUtils.js";
+import fillDropdownWithUsers from "../../../api/fillDropdownWithUsers.js";
+import fillDropdownStatus from "../../../api/fillDropdownWithStatus.js";
 
 const dataCardUrl = 'http://localhost:8080/datacard';
 const token = getToken();
@@ -15,7 +17,7 @@ export async function updateDataCard(dataCardId) {
     }
 }
 
-export function updateDataCardPage(dataCard) {
+export async function updateDataCardPage(dataCard) {
     const container = document.getElementById('main-container');
     if (!container) {
         console.error("Update data card container not found");
@@ -34,6 +36,16 @@ export function updateDataCardPage(dataCard) {
 
             <label for="puk">PUK Code:</label>
             <input type="text" id="puk" name="puk" value="${dataCard.puk}" required>
+            
+            <label for="status">Device Status:</label>
+            <select id="status" name="status" required>
+                <!-- Populate with device statuses -->
+            </select>
+            
+            <label for="users">Assign User:</label>
+            <select id="users" name="users" required>
+                <!-- Populate with device statuses -->
+            </select>
 
             <button type="button" onclick="updateDataCardSubmit(${dataCard.id})" id="updateDataCardButton">Update DataCard</button>
         </form>
@@ -41,29 +53,46 @@ export function updateDataCardPage(dataCard) {
 
     // Insert the generated HTML into the container
     container.innerHTML = dataCardUpdateTemplate;
+    await fillDropdownStatus(dataCard.status ? dataCard.status : null);
+    await fillDropdownWithUsers(dataCard.user ? dataCard.user.id : null);
+
 
     // Attach the submit function to the window object for global access
     window.updateDataCardSubmit = updateDataCardSubmit;
 }
 
-function updateDataCardSubmit(dataCardId) {
+export function updateDataCardSubmit(dataCardId) {
+    // Read updated values from form inputs
+    const iccidNumber = document.getElementById('iccidnumber').value;
+    const pin = document.getElementById('pin').value;
+    const puk = document.getElementById('puk').value;
+    const status = document.getElementById('status').value;
+    const user = document.getElementById('users').value;
+
+    // Convert the user ID to a number or keep it as null
+    const userId = user === 'None' ? null : parseInt(user, 10);
+
     const formData = {
-        iccidNumber: document.getElementById('iccidnumber').value,
-        pin: document.getElementById('pin').value,
-        puk: document.getElementById('puk').value
+        iccidNumber,
+        pin,
+        puk,
+        status,
+        user: userId !== null ? { id: userId } : null, // Include the user ID as an object or null
     };
 
     const updateUrl = `${dataCardUrl}/${dataCardId}`;
-    postObjectAsJson(updateUrl, formData, "PUT", token).then(response => {
-        if (response.ok) {
-            alert("DataCard updated successfully");
-            window.location.reload();
-        } else {
-            alert("Failed to update DataCard. Status: " + response.status);
-        }
-    }).catch(error => {
-        console.error("Error updating DataCard:", error);
-        alert("An error occurred while updating the DataCard.");
-    });
+    postObjectAsJson(updateUrl, formData, "PUT", token)
+        .then(response => {
+            if (response.ok) {
+                alert("DataCard updated successfully");
+                window.location.reload();
+            } else {
+                alert("Failed to update DataCard. Status: " + response.status);
+            }
+        })
+        .catch(error => {
+            console.error("Error updating DataCard:", error);
+            alert("An error occurred while updating the DataCard.");
+        });
 }
 

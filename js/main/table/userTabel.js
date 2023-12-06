@@ -18,7 +18,7 @@ export default function createTable(data) {
     const header = table.createTHead();
     const headerRow = header.insertRow();
 
-    const desiredFields = ['firstname', 'middlename', 'lastname', 'email', 'userType'];
+    const desiredFields = ['firstname', 'middlename', 'lastname', 'email', 'userRole'];
 
     // Create column headers for desired fields
     desiredFields.forEach(field => {
