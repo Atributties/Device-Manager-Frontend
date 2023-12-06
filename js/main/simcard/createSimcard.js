@@ -21,6 +21,9 @@ export default function createSimCardPage() {
 
             <label for="puk">PUK Code:</label>
             <input type="text" id="puk" name="puk" required>
+            
+            <label for="status">Simcard Status:</label>
+            <blockquote>In storage (DEFAULT)</blockquote>
 
             <button type="button" onclick="submitSimCard()" id="createSimCardButton">Create SimCard</button>
         </form>
@@ -37,7 +40,8 @@ window.submitSimCard = async function () {
         iccidNumber: document.getElementById('iccidnumber').value,
         phoneNumber: document.getElementById('phoneNumber').value,
         pin: document.getElementById('pin').value,
-        puk: document.getElementById('puk').value
+        puk: document.getElementById('puk').value,
+        status: "IN_STORAGE"
     };
 
     try {

@@ -1,7 +1,8 @@
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import fetchAnyUrl from "../../../api/fetchAnyUrl.js";
 import { getToken } from "../../../utils/jwtUtils.js";
-import fillDropdownWithUsers from "../user/fillDropdownWithUsers.js";
+import fillDropdownWithUsers from "../../../api/fillDropdownWithUsers.js";
+import fillDropdownStatus from "../../../api/fillDropdownWithStatus.js";
 
 const dataCardUrl = 'http://localhost:8080/datacard';
 const token = getToken();
@@ -36,6 +37,11 @@ export async function updateDataCardPage(dataCard) {
             <label for="puk">PUK Code:</label>
             <input type="text" id="puk" name="puk" value="${dataCard.puk}" required>
             
+            <label for="status">Device Status:</label>
+            <select id="status" name="status" required>
+                <!-- Populate with device statuses -->
+            </select>
+            
             <label for="users">Assign User:</label>
             <select id="users" name="users" required>
                 <!-- Populate with device statuses -->
@@ -47,7 +53,9 @@ export async function updateDataCardPage(dataCard) {
 
     // Insert the generated HTML into the container
     container.innerHTML = dataCardUpdateTemplate;
+    await fillDropdownStatus(dataCard.status ? dataCard.status : null);
     await fillDropdownWithUsers(dataCard.user ? dataCard.user.id : null);
+
 
     // Attach the submit function to the window object for global access
     window.updateDataCardSubmit = updateDataCardSubmit;
@@ -58,6 +66,7 @@ export function updateDataCardSubmit(dataCardId) {
     const iccidNumber = document.getElementById('iccidnumber').value;
     const pin = document.getElementById('pin').value;
     const puk = document.getElementById('puk').value;
+    const status = document.getElementById('status').value;
     const user = document.getElementById('users').value;
 
     // Convert the user ID to a number or keep it as null
@@ -67,6 +76,7 @@ export function updateDataCardSubmit(dataCardId) {
         iccidNumber,
         pin,
         puk,
+        status,
         user: userId !== null ? { id: userId } : null, // Include the user ID as an object or null
     };
 

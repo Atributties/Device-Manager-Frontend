@@ -1,4 +1,4 @@
-import {fetchUsers} from "../../../api/fetchUsers.js";
+import {fetchUsers} from "./fetchUsers.js";
 
 export default async function fillDropdownWithUsers(currentUserId) {
     try {

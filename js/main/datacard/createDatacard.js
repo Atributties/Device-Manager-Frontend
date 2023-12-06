@@ -18,6 +18,9 @@ export default function createDataCardPage() {
 
             <label for="puk">PUK Code:</label>
             <input type="text" id="puk" name="puk" required>
+            
+            <label for="status">Simcard Status:</label>
+            <blockquote>In storage (DEFAULT)</blockquote>
 
             <button type="button" onclick="submitDataCard()" id="createDataCardButton">Create DataCard</button>
         </form>
@@ -33,7 +36,8 @@ window.submitDataCard = function () {
     const formData = {
         iccidNumber: document.getElementById('iccidnumber').value,
         pin: document.getElementById('pin').value,
-        puk: document.getElementById('puk').value
+        puk: document.getElementById('puk').value,
+        status: document.getElementById('status').value
     };
 
     postObjectAsJson(dataCardUrl, formData, "POST", token)
