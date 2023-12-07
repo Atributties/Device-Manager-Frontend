@@ -9,6 +9,7 @@ import getSimcardTabel from "../main/simcard/getSimcardTabel.js";
 import fetchAllData from "../main/dataInformation/barChartAllData.js";
 import getDeviceTableUser from "../main/device/getDeviceTableUser.js";
 import createUserRequestPage from "../main/user/createUserRequest.js";
+import getUserRequestsTable from "../main/user/getUserRequestTable.js";
 
 export default function setupNavbarListeners() {
     // Listener for "Create User" link
@@ -94,6 +95,12 @@ export default function setupNavbarListeners() {
         event.preventDefault();
         clearMainContainer();
         createUserRequestPage();
+    });
+
+    document.getElementById("view-user-request")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        getUserRequestsTable();
     });
 
     function clearMainContainer() {
