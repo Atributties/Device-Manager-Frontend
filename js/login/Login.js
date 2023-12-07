@@ -1,6 +1,6 @@
 export default function Login() {// If you have more styles, you can add them here or use a CSS file
     return `
-        <div class="container">
+        <div class="container-login">
             <div class="row">
                 <div class="col">
                     <h1 id="bigLogin" class="text-center">Login</h1>
