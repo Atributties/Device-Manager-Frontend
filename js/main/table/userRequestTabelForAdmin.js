@@ -1,7 +1,8 @@
 import formatDateTime from "../modules/dateTimeFormat.js";
 import fetchUserRequestInfo from "../message/createMessageForUserRequest.js";
 
-export default async function createUserRequestsTable(data) {
+export default async function createUserRequestsTableForAdmin(data) {
+
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
         return;
@@ -18,7 +19,7 @@ export default async function createUserRequestsTable(data) {
 
     const header = table.createTHead();
     const headerRow = header.insertRow();
-    const desiredFields = ['id', 'requestType', 'requestText', 'messages', 'dateCreated'];
+    const desiredFields = ['id', 'user', 'requestType', 'requestText', 'messages', 'dateCreated'];
 
     desiredFields.forEach(field => {
         const th = document.createElement("th");
@@ -32,13 +33,18 @@ export default async function createUserRequestsTable(data) {
         const row = tbody.insertRow();
         desiredFields.forEach(field => {
             const cell = row.insertCell();
-            if (field === 'requestText') {
+
+            if (field ==='user') {
+                const dropdownButtonUser = createDropdownButtonForUser(rowData[field], rowData['user'])
+                cell.appendChild(dropdownButtonUser)
+            } else if (field === 'requestText') {
                 // Check if the field is 'requestText' and add a dropdown button
                 const dropdownButton = createDropdownButton(rowData[field], rowData['messages']);
                 cell.appendChild(dropdownButton);
             } else if (field === 'messages') {
                 // Check if the field is 'messages' and add a "Show Messages" button
                 const showMessagesButton = createShowMessagesButton(rowData.id);
+
                 cell.appendChild(showMessagesButton);
             }else if (field === 'dateCreated') {
                 // Check if the field is 'dateCreated' and format the date using the imported function
@@ -89,6 +95,60 @@ function showTextDropdown(event, text) {
     content.textContent = text;
 
     dropdown.appendChild(content);
+
+    // Position the dropdown directly below the button
+    const rect = event.target.getBoundingClientRect();
+    dropdown.style.position = "absolute";
+    dropdown.style.top = rect.bottom + "px";
+    dropdown.style.left = rect.left + "px";
+
+    // Add an event listener to close the dropdown when clicking outside
+    document.addEventListener("click", function closeDropdown(e) {
+        if (!dropdown.contains(e.target) && e.target !== event.target) {
+            document.removeEventListener("click", closeDropdown);
+            dropdown.remove();
+        }
+    });
+
+    document.body.appendChild(dropdown);
+}
+
+function createDropdownButtonForUser(user) {
+    const button = document.createElement("button");
+    button.id = "dropdown-buttonUser";
+    button.textContent = user.email;
+
+    // Add an event listener to show the user info when the button is clicked
+    button.addEventListener("click", function (event) {
+        showUserDropdownForUser(event, user);
+    });
+
+    return button;
+}
+
+function showUserDropdownForUser(event, user) {
+    // Create a dropdown window to display the selected user information
+    const dropdown = document.createElement("div");
+    dropdown.id = "user-info-dropdown";
+
+    // Display only selected user properties in the dropdown
+    const selectedProperties = ['id', 'firstname', 'middlename', 'lastname', 'email', 'userRole', 'username'];
+
+    selectedProperties.forEach(property => {
+        const propertyContainer = document.createElement("div");
+
+        const propertyKey = document.createElement("span");
+        propertyKey.className = "property-key"; // Add the class
+        propertyKey.textContent = `${property}:`;
+
+        const propertyValue = document.createElement("span");
+        propertyValue.className = "property-value"; // Add the class
+        propertyValue.textContent = ` ${user[property]}`;
+
+        propertyContainer.appendChild(propertyKey);
+        propertyContainer.appendChild(propertyValue);
+        dropdown.appendChild(propertyContainer);
+    });
 
     // Position the dropdown directly below the button
     const rect = event.target.getBoundingClientRect();

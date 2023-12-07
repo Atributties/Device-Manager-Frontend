@@ -10,6 +10,8 @@ import fetchAllData from "../main/dataInformation/barChartAllData.js";
 import getDeviceTableUser from "../main/device/getDeviceTableUser.js";
 import createUserRequestPage from "../main/user/createUserRequest.js";
 import getUserRequestsTable from "../main/user/getUserRequestTable.js";
+import getAllUserRequestsTabelForAdmin from "../main/user/getAllUserRequestTabelForAdmin.js";
+import fetchUserRequestInfo from "../main/message/createMessageForUserRequest.js";
 
 export default function setupNavbarListeners() {
     // Listener for "Create User" link
@@ -101,6 +103,16 @@ export default function setupNavbarListeners() {
         event.preventDefault();
         clearMainContainer();
         getUserRequestsTable();
+    });
+    document.getElementById("view-user-request-admin")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        getAllUserRequestsTabelForAdmin()
+    });
+    document.getElementById("dropdown-buttonUserRequest")?.addEventListener("click", (event) => {
+        event.preventDefault();
+        clearMainContainer();
+        fetchUserRequestInfo()
     });
 
     function clearMainContainer() {

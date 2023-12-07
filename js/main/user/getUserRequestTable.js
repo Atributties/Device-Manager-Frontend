@@ -9,7 +9,7 @@ export default async function getUserRequestsTable() {
 
     try {
         const userRequestsList = await fetchAnyUrl(url, {}, accessToken);
-        createUserRequestsTable(userRequestsList);
+        await createUserRequestsTable(userRequestsList);
         console.log(userRequestsList);
     } catch (error) {
         console.error("Error getting user requests table:", error);
