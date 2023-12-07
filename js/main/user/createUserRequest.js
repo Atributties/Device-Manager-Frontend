@@ -18,7 +18,8 @@ export default async function createUserRequestPage() {
             </select>
 
             <label for="requestText">Request Text:</label>
-            <textarea id="requestText" name="requestText" required></textarea>
+            <textarea id="requestText" name="requestText" oninput="updateCharCount()" required></textarea>
+            <div id="charCount">Characters remaining: 2000</div>
 
             <button type="button" onclick="submitUserRequest(${userId})" id="createUserRequestButton">Create Request</button>
         </form>
@@ -28,6 +29,15 @@ export default async function createUserRequestPage() {
     container.innerHTML = userRequestTemplate;
     await fillDropdownWithRequestTypes();
 }
+
+window.updateCharCount = function () {
+    const maxLength = 2000;
+    const charCountElement = document.getElementById('charCount');
+    const requestText = document.getElementById('requestText').value;
+    const remainingChars = maxLength - requestText.length;
+
+    charCountElement.textContent = `Characters remaining: ${remainingChars}`;
+};
 
 window.submitUserRequest = async function (userId) {
     const formData = {

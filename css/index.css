@@ -719,3 +719,42 @@ textarea {
 }
 
 
+/* Stil for tekst-dropdown */
+#text-dropdownUserRequest {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow-wrap: break-word; /* Breaks words that exceed the box width */
+    max-width: 700px; /* Set the maximum width to control when it goes to a new line */
+}
+
+#text-dropdownUserRequest div {
+    /* Yderligere stil til tekstindholdet, f.eks. margin, padding osv. */
+    margin: 0;
+}
+
+/* Stil for dropdown-knappen */
+#dropdown-buttonUserRequest {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dropdown-buttonUserRequest:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+
+
+

@@ -1,3 +1,5 @@
+
+
 export default async function createUserRequestsTable(data) {
     if (!data || data.length === 0) {
         console.error("No data provided to create table");
@@ -29,17 +31,14 @@ export default async function createUserRequestsTable(data) {
         const row = tbody.insertRow();
         desiredFields.forEach(field => {
             const cell = row.insertCell();
-            if (field === 'requestText' && rowData[field].length > 2) {
-                const shortText = rowData[field].substring(0, 2) + '...';
-                const fullText = rowData[field];
-
-                const textSpan = document.createElement('span');
-                textSpan.textContent = shortText;
-                textSpan.style.cursor = 'pointer';
-                textSpan.title = 'Click to see full text';
-                textSpan.onclick = () => showModal(fullText);
-
-                cell.appendChild(textSpan);
+            if (field === 'requestText') {
+                // Check if the field is 'requestText' and add a dropdown button
+                const dropdownButton = createDropdownButton(rowData[field], rowData['messages']);
+                cell.appendChild(dropdownButton);
+            } else if (field === 'messages') {
+                // Check if the field is 'messages' and add a "Show Messages" button
+                const showMessagesButton = createShowMessagesButton(rowData[field]);
+                cell.appendChild(showMessagesButton);
             } else {
                 cell.textContent = rowData[field];
             }
@@ -49,39 +48,53 @@ export default async function createUserRequestsTable(data) {
     mainContainer.appendChild(table);
 }
 
-function showModal(fullText) {
-    // Create the modal container
-    const modal = document.createElement('div');
-    modal.id = 'myModal';
-    modal.className = 'modal';
+function createShowMessagesButton(messages) {
+    const button = document.createElement("button");
+    button.textContent = "Show Messages";
+    button.id = "dropdown-buttonUserRequest";
+    button.addEventListener("click", function () {
 
-    // Modal content
-    const modalContent = document.createElement('div');
-    modalContent.className = 'modal-content';
-    const closeButton = document.createElement('span');
-    closeButton.className = 'close';
-    closeButton.innerHTML = '&times;';
-    closeButton.onclick = () => modal.style.display = 'none';
+    });
 
-    const textContent = document.createElement('p');
-    textContent.textContent = fullText;
-
-    modalContent.appendChild(closeButton);
-    modalContent.appendChild(textContent);
-    modal.appendChild(modalContent);
-
-    document.body.appendChild(modal);
-
-    // Display the modal
-    modal.style.display = 'block';
-
-    // Close the modal when clicking outside of it
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = 'none';
-        }
-    };
+    return button;
 }
 
+function createDropdownButton(text) {
+    const button = document.createElement("button");
+    button.id = "dropdown-buttonUserRequest";
+    button.textContent = "Show Text";
 
+    // Add an event listener to show the text when the button is clicked
+    button.addEventListener("click", function (event) {
+        showTextDropdown(event, text);
+    });
 
+    return button;
+}
+
+function showTextDropdown(event, text) {
+    // Create a dropdown window to display the entire text
+    const dropdown = document.createElement("div");
+    dropdown.id = "text-dropdownUserRequest";
+
+    const content = document.createElement("div");
+    content.textContent = text;
+
+    dropdown.appendChild(content);
+
+    // Position the dropdown directly below the button
+    const rect = event.target.getBoundingClientRect();
+    dropdown.style.position = "absolute";
+    dropdown.style.top = rect.bottom + "px";
+    dropdown.style.left = rect.left + "px";
+
+    // Add an event listener to close the dropdown when clicking outside
+    document.addEventListener("click", function closeDropdown(e) {
+        if (!dropdown.contains(e.target) && e.target !== event.target) {
+            document.removeEventListener("click", closeDropdown);
+            dropdown.remove();
+        }
+    });
+
+    document.body.appendChild(dropdown);
+}
