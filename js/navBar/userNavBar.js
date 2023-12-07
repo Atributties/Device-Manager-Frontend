@@ -5,6 +5,9 @@ export default function userNavBar() {
         `<li class="sidebar-brand">
             <a href="#" id="user-devices" class="text-light">My devices</a>
         </li>`,
+        `<li class="sidebar-brand">
+            <a href="#" id="user-request" class="text-light">Request</a>
+        </li>`,
     ];
 
     return NavBar(additionalLiElements);

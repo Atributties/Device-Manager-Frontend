@@ -689,4 +689,33 @@ textarea {
     background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
 }
 
+#createUserRequestButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createUserRequestButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#createUserRequestForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#userRequesth2 {
+    align-items: center;
+    text-align: center;
+    margin-left: 20px;
+}
+
 
