@@ -1,8 +1,5 @@
 import deleteDatacard from "../datacard/deleteDatacard.js";
 import { updateDataCard } from "../datacard/updateDataCard.js";
-import {fetchUsers} from "../../../api/fetchUsers.js";
-
-
 
 export default async function createDatacardTable(data) {
     if (!data || data.length === 0) {

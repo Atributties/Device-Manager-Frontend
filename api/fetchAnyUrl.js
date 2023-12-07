@@ -24,6 +24,7 @@ export default function fetchAnyUrl(url, options = {}, token) {
             console.error("Fetch fejlede:", error);
             throw error; // Kast fejlen videre, så det kan håndteres af kaldende kode
         });
+
 }
 
 
