@@ -1,4 +1,4 @@
-
+import formatDateTime from "../modules/dateTimeFormat.js";
 
 export default async function createUserRequestsTable(data) {
     if (!data || data.length === 0) {
@@ -39,7 +39,11 @@ export default async function createUserRequestsTable(data) {
                 // Check if the field is 'messages' and add a "Show Messages" button
                 const showMessagesButton = createShowMessagesButton(rowData[field]);
                 cell.appendChild(showMessagesButton);
-            } else {
+            }else if (field === 'dateCreated') {
+                // Check if the field is 'dateCreated' and format the date using the imported function
+                cell.textContent = formatDateTime(rowData[field]);
+            }
+            else {
                 cell.textContent = rowData[field];
             }
         });
