@@ -6,6 +6,9 @@ export default function systemAdminNavBar() {
             <a href="#" id="device-manager-link" class="text-light">Device Manager</a>
         </li>`,
         `<li class="sidebar-brand">
+            <a href="#" id="view-user-request-admin" class="text-light">User Request</a>
+        </li>`,
+        `<li class="sidebar-brand">
             <a href="#" id="employees" class="text-light">Users</a>
         </li>`,
         `<li class="sidebar-brand">

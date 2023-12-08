@@ -43,14 +43,17 @@ export default async function loadLogin() {
                     const decodedToken = JSON.parse(payload);
 
                     const userRole = decodedToken.roles;
+                    const userID = data.user.id;
 
                     console.log("User role:", userRole);
 
                     localStorage.setItem('userRole', userRole);
+                    localStorage.setItem('userID', userID);
                     updateNavbarForRole(userRole);
 
                     console.log("Login successful:", data);
                     console.log("jwt token:", data.jwt);
+                    console.log("User ID:", userID);
                     window.location.reload();
                 } else {
                     console.error("Login failed:", response.status);

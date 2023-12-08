@@ -1,10 +1,12 @@
 import adminNavBar from "./adminNavBar.js";
 import systemAdminNavBar from "./systemAdminNavBar.js";
 import userNavBar from "./userNavBar.js";
+import getDeviceTableUser from "../main/device/getDeviceTableUser.js";
 
 // Function to update the navbar based on the role
 export default async function updateNavbarForRole(role) {
     let navbarContainer = document.getElementById("navbar-container");
+    let mainContainer = document.getElementById("main-container");
     if (navbarContainer) {
         switch (role) {
             case "SYSTEM_ADMIN":
@@ -17,6 +19,7 @@ export default async function updateNavbarForRole(role) {
 
             case "USER":
                 navbarContainer.innerHTML = userNavBar();
+                mainContainer.innerHTML = getDeviceTableUser();
                 break;
 
             default:

@@ -1,7 +1,7 @@
 
 import postObjectAsJson from "../../../api/postObjectAsJson.js";
 import {getToken} from "../../../utils/jwtUtils.js";
-import fillDropdownUserTypes from "./fillDropdownUserTypes.js";
+import fillDropdownUserRoles from "./fillDropdownUserTypes.js";
 
 const url = 'http://localhost:8080/user/register';
 const token = getToken()
@@ -27,8 +27,8 @@ export default async function createUserPage() {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <label for="userType">User Type:</label>
-            <select id="userType" name="userType" required>
+            <label for="userRole">User Type:</label>
+            <select id="userRole" name="userRole" required>
           
             </select>
 
@@ -39,7 +39,7 @@ export default async function createUserPage() {
     // Get the container element
     const container = document.getElementById('main-container');
     container.innerHTML = userCreationTemplate;
-    await fillDropdownUserTypes();
+    await fillDropdownUserRoles();
 
 
 }
@@ -52,7 +52,7 @@ window.submitUser = async function () {
         lastname: document.getElementById('lastname').value,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value,
-        userType: document.getElementById('userType').value
+        userRole: document.getElementById('userRole').value
     };
 
     try {

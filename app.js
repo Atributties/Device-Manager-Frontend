@@ -7,11 +7,14 @@ import getUserTable from "./js/main/user/getUserTable.js";
 import setupNavbarListeners from "./js/navBar/setupNavbarListeners.js";
 
 
+const SESSION_TIMEOUT = 60 * 60 * 1000;
+
 async function initializeApp() {
     // Check if the user is already logged in
     const storedRole = localStorage.getItem('userRole');
+    const loginTime = localStorage.getItem('loginTime');
 
-    if (storedRole) {
+    if (storedRole && loginTime && Date.now() - loginTime < SESSION_TIMEOUT) {
         // If the role is stored, the user is already logged in
         await handleLoggedInUser(storedRole);
     } else {
@@ -34,7 +37,12 @@ async function handleLoggedOutUser() {
     await updateNavbarForRole(newRole);
 }
 
+function updateLoginTime() {
+    localStorage.setItem('loginTime', Date.now());
+}
+
 initializeApp();
+updateLoginTime();
 
 
 
