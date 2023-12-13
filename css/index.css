@@ -1,0 +1,934 @@
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (https://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+h2 {
+    margin-left: 50px;
+}
+
+#main-container {
+    margin-left: 20%;
+}
+
+.custom-table {
+    width: 80%;
+}
+
+#createDeviceForm {
+    width: 80%;
+}
+
+#wrapper {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    overflow-y: auto;
+    background: #000;
+    transition: all 0.5s ease;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+.fixed-brand {
+    width: auto;
+}
+
+/* Sidebar Styles */
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 2px;
+}
+
+.sidebar-nav li {
+    text-indent: 15px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #FAFAFA;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    border-left: red 2px solid;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    .fixed-brand {
+        width: 250px;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+        transition: all 0.5s ease;
+    }
+
+    #wrapper #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+        padding-left: 250px;
+    }
+}
+
+/* styles.css */
+
+/* Custom styles for the table container */
+/* Custom styles for the table */
+.custom-table {
+    width: 100%;
+    border: none; /* Remove border to eliminate the gray line */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures rounded corners are applied */
+    table-layout: auto;
+    margin-left: 50px;
+
+}
+
+/* Custom styles for table headers */
+.custom-table th {
+    background-color: #212529; /* Updated color from #007bff */
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+}
+
+/* Custom styles for table cells */
+.custom-table td {
+    padding: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Stripe effect on table rows */
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f1f1f1; /* Light gray for even rows */
+}
+
+/* Different background color for odd rows */
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #e5e4e4; /* A different color for odd rows */
+}
+
+/* Hover effect on table rows */
+.custom-table tbody tr:hover {
+    background-color: #e0e0e0; /* Lighter gray on hover */
+}
+
+
+/* styles.css */
+
+/* Add any custom styles here */
+/* You can customize the styles based on your design preferences */
+
+/* Optional: Adjust body margin and padding */
+/* styles.css */
+/* styles.css */
+
+/* Add Bootstrap link if not already included in your project */
+
+/* Add your custom styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createUserHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createUserForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#createUserButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createUserButton:hover {
+    background-color: #444242FF; /* Darker shade of Bootstrap primary color */
+}
+
+#updateButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#viewDevicesButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#viewDevicesButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#updateButton1 {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateButton1:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#assignButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#assignButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#deleteButton {
+    background-color: #ff1210;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#deleteButton:hover {
+    background-color: #e02a2a; /* Darker shade of Bootstrap primary color */
+}
+
+#deleteButton1 {
+    background-color: #ff1210;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#deleteButton1:hover {
+    background-color: #e02a2a; /* Darker shade of Bootstrap primary color */
+}
+
+#createUserHeading {
+    text-align: center;
+    color: #444242; /* Bootstrap primary color */
+}
+
+#bigLogin {
+    margin-top: 20px;
+}
+
+
+/*
+Style for create device
+ */
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createDeviceHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createDeviceForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#createDeviceButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createDeviceButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+/*
+Simcard creation
+ */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createSimCardHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createSimCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#createSimCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createSimCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+/*
+Style for create datacard
+ */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#createDataCardHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#createDataCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+#createDataCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createDataCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+/*
+Update datacard style
+ */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateDataCardHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#updateDataCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateDataCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateDataCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+
+/*
+Update user style
+ */
+
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateUserHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#updateUserForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateUserButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateUserButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+/*
+Update device
+ */
+
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateDeviceHeading {
+    color: #444242; /* Bootstrap primary color */
+}
+
+#updateDeviceForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateDeviceButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateDeviceButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+/*
+Update simcard
+ */
+
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#updateSimCardForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#updateSimCardButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#updateSimCardButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#createUserRequestButton {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#createUserRequestButton:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+#createUserRequestForm {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#userRequesth2 {
+    align-items: center;
+    text-align: center;
+    margin-left: 20px;
+}
+
+
+/* Stil for tekst-dropdown */
+#text-dropdownUserRequest {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow-wrap: break-word; /* Breaks words that exceed the box width */
+    max-width: 700px; /* Set the maximum width to control when it goes to a new line */
+}
+
+#text-dropdownUserRequest div {
+    /* Yderligere stil til tekstindholdet, f.eks. margin, padding osv. */
+    margin: 0;
+}
+
+/* Stil for dropdown-knappen */
+#dropdown-buttonUserRequest {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dropdown-buttonUserRequest:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+
+
+#user-info-dropdown {
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow-wrap: break-word; /* Breaks words that exceed the box width */
+    max-width: 700px; /* Set the maximum width to control when it goes to a new line */
+}
+
+#user-info-dropdown div {
+    margin-bottom: 8px;
+}
+
+#user-info-dropdown span.property-key {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ff00ea; /* Key color */
+}
+
+#user-info-dropdown span.property-value {
+    color: #0bff00; /* Value color */
+}
+#dropdown-buttonUser{
+    background-color: #444242FF;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#dropdown-buttonUser:hover {
+    background-color: #5e5c5c; /* Darker shade of Bootstrap primary color */
+}
+
+/*
+Show user request and messages
+ */
+#user-request-container,
+#messages-container,
+#create-message-container {
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #e5e4e4;
+}
+
+#user-request-container h2,
+#messages-container h2,
+#create-message-container h2 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.elegant-user-info-property,
+.message-property {
+    margin-bottom: 10px;
+}
+
+.elegant-property-key,
+.message-property {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#messages-container {
+    margin-top: 20px;
+}
+
+#messages-list {
+    list-style: none;
+    padding: 0;
+}
+
+#messages-list li {
+    border: 1px solid #c4c4c4;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#messages-list li p {
+    margin: 0;
+}
+
+#createMessageForm {
+    margin-top: 20px;
+}
+
+#messageText {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#createMessageButton {
+    background-color: #444242;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#createMessageButton:hover {
+    background-color: #5e5c5c;
+}
+
+
+
+/*
+Login
+ */
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.col {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px; /* Adjust the maximum width as needed */
+    width: 100%; /* Make it responsive */
+}
+
+#bigLogin {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #444242;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #5e5c5c;
+}
